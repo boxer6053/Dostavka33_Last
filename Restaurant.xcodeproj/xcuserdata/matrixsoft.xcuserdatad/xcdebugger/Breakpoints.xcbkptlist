@@ -21,50 +21,50 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Restaurant/MainMenuViewController.m"
-         timestampString = "373549294.545101"
+         timestampString = "385655895.78852"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "648"
-         endingLineNumber = "648"
-         landmarkName = "-viewSpam:"
-         landmarkType = "5">
+         startingLineNumber = "658"
+         endingLineNumber = "658"
+         landmarkName = "@implementation MainMenuViewController"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Restaurant/MainMenuViewController.m"
-         timestampString = "373482738.181699"
+         timestampString = "385655895.78852"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "308"
-         endingLineNumber = "308"
-         landmarkName = "-promotionsArray"
-         landmarkType = "5">
+         startingLineNumber = "318"
+         endingLineNumber = "318"
+         landmarkName = "@implementation MainMenuViewController"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Restaurant/MainMenuViewController.m"
-         timestampString = "373549294.545101"
+         timestampString = "385655895.78852"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "461"
-         endingLineNumber = "461"
-         landmarkName = "-animationForPromotions"
-         landmarkType = "5">
+         startingLineNumber = "471"
+         endingLineNumber = "471"
+         landmarkName = "@implementation MainMenuViewController"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Restaurant/MainMenuViewController.m"
-         timestampString = "373549294.545101"
+         timestampString = "385655895.78852"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "542"
-         endingLineNumber = "542"
+         startingLineNumber = "552"
+         endingLineNumber = "552"
          landmarkName = "-changingAnimation"
          landmarkType = "5">
       </FileBreakpoint>
@@ -383,7 +383,7 @@
    </FileBreakpoints>
    <ExceptionBreakpoints>
       <ExceptionBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          scope = "0"

@@ -141,6 +141,16 @@
 @synthesize titleCartIsEmpty = _titleCartIsEmpty;
 @synthesize historyArray = _historyArray;
 
+- (UIButton *)restorantsButton
+{
+    if ([[UIScreen mainScreen] bounds].size.height == 568)
+    {
+        [_restorantsButton setFrame:CGRectMake(85, 500, 150, 35)];
+    }
+    
+    return _restorantsButton;
+}
+
 - (NSMutableArray *)historyArray
 {
     if (!_historyArray) {

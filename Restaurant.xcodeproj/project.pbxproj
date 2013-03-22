@@ -177,7 +177,6 @@
 		FA243CAC16443D1F00E23E41 /* FacebookLoginViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = FA243CAA16443D1E00E23E41 /* FacebookLoginViewController.h */; };
 		FA243CAD16443D1F00E23E41 /* FacebookLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA243CAB16443D1E00E23E41 /* FacebookLoginViewController.m */; };
 		FA4B45871642A9FA00EB157A /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FA4B45861642A9FA00EB157A /* FacebookSDKResources.bundle */; };
-		FA4C15361677AD7500915275 /* IPadStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA4C15351677AD7500915275 /* IPadStoryboard.storyboard */; };
 		FA935701164BFD4200E2AA13 /* Checkbox_checked_40px.png in Resources */ = {isa = PBXBuildFile; fileRef = FA9356FF164BFD4200E2AA13 /* Checkbox_checked_40px.png */; };
 		FA935702164BFD4200E2AA13 /* Checkbox_unchecked_40px.png in Resources */ = {isa = PBXBuildFile; fileRef = FA935700164BFD4200E2AA13 /* Checkbox_unchecked_40px.png */; };
 		FA936663168EFE1D00DB341D /* SizeStruct.h in Headers */ = {isa = PBXBuildFile; fileRef = FA936661168EFE1D00DB341D /* SizeStruct.h */; };
@@ -404,7 +403,6 @@
 		FA243CAA16443D1E00E23E41 /* FacebookLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookLoginViewController.h; sourceTree = "<group>"; };
 		FA243CAB16443D1E00E23E41 /* FacebookLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookLoginViewController.m; sourceTree = "<group>"; };
 		FA4B45861642A9FA00EB157A /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FacebookSDKResources.bundle; path = ../FacebookSDK/FacebookSDK.framework/Versions/A/Resources/FacebookSDKResources.bundle; sourceTree = "<group>"; };
-		FA4C15351677AD7500915275 /* IPadStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = IPadStoryboard.storyboard; path = ../IPadStoryboard.storyboard; sourceTree = "<group>"; };
 		FA9356FF164BFD4200E2AA13 /* Checkbox_checked_40px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Checkbox_checked_40px.png; sourceTree = "<group>"; };
 		FA935700164BFD4200E2AA13 /* Checkbox_unchecked_40px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Checkbox_unchecked_40px.png; sourceTree = "<group>"; };
 		FA936661168EFE1D00DB341D /* SizeStruct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SizeStruct.h; sourceTree = "<group>"; };
@@ -518,7 +516,6 @@
 				F5E93A4D156CFFB3005ED3ED /* Cells */,
 				F51063BE15C918FA00ED0368 /* Models */,
 				781B8F191546DB870074EDBD /* MainStoryboard_iPhone.storyboard */,
-				FA4C15351677AD7500915275 /* IPadStoryboard.storyboard */,
 				78D3CF1C156A9248003202BD /* Restaurants.xcdatamodeld */,
 				781B8F161546DB870074EDBD /* RestaurantAppDelegate.h */,
 				781B8F171546DB870074EDBD /* RestaurantAppDelegate.m */,
@@ -1048,7 +1045,6 @@
 				FA935702164BFD4200E2AA13 /* Checkbox_unchecked_40px.png in Resources */,
 				FAEB517B165E6D390029141E /* IngredientCell.xib in Resources */,
 				FAEB5181165E6DBD0029141E /* ProductDescriptionCell.xib in Resources */,
-				FA4C15361677AD7500915275 /* IPadStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
