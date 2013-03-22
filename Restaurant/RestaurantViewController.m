@@ -1,0 +1,286 @@
+//
+//  RestaurantViewController.m
+//  Restaurant
+//
+//  Created by Bogdan Geleta on 31.05.12.
+//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//
+
+#import "RestaurantViewController.h"
+#import "RestaurantCell.h"
+#import <QuartzCore/QuartzCore.h>
+#import "Singleton.h"
+#import "SSToolkit/SSToolkit.h"
+#import "checkConnection.h"
+
+@interface RestaurantViewController ()
+{
+    BOOL isDownloadingPicture;
+}
+@property (nonatomic, strong) SSLoadingView *loadingView;
+@property (nonatomic, strong) RestaurantCell *cell;
+@property (nonatomic, strong) RestaurantDataStruct *dataStruct;
+@end
+
+@implementation RestaurantViewController
+@synthesize arrayData = _arrayData;
+@synthesize db = _db;
+@synthesize selectedRow = _selectedRow;
+@synthesize cell = _cell;
+
+
+
+
+
+
+
+- (NSMutableArray *)arrayData
+{
+    if(!_arrayData)
+    {
+        NSMutableArray *array = [[NSMutableArray alloc] init];
+        RestaurantDataStruct *dataStruct;
+        NSArray *data = [self.db fetchAllRestaurantsWithDefaultLanguageAndCity];
+        id restaurant;
+        for(int i=0;i<data.count;i++)
+        {
+            if(i%2==0) 
+            {
+                restaurant = [data objectAtIndex:i];
+                dataStruct = [[RestaurantDataStruct alloc] init];
+                dataStruct.restaurantId = [restaurant valueForKey:@"underbarid"];
+                dataStruct.phones = [restaurant valueForKey:@"phones"];
+                dataStruct.idPicture = [restaurant valueForKey:@"idPicture"];
+                NSArray *coordinates = [[restaurant valueForKey:@"coordinates"] componentsSeparatedByString:@";"];
+                dataStruct.latitude = [coordinates objectAtIndex:0];
+                dataStruct.longitude = [coordinates objectAtIndex:1];
+                dataStruct.seatsNumber = [restaurant valueForKey:@"seatsNumber"];
+                dataStruct.terrace = [restaurant valueForKey:@"terrace"];
+                dataStruct.parking = [restaurant valueForKey:@"parking"];
+                dataStruct.workingTime = [restaurant valueForKey:@"workingTime"];
+                
+//                NSData *dataOfPicture = [[pictures objectForKey:dataStruct.idPicture] valueForKey:@"data"];
+//                NSString *urlForImage = [NSString stringWithFormat:@"http://matrix-soft.org/addon_domains_folder/test4/root/%@",[[pictures objectForKey:dataStruct.idPicture] valueForKey:@"link"]];
+//                urlForImage = [urlForImage stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+//                NSURL *url = [[NSURL alloc] initWithString:urlForImage];
+//                dataStruct.link = url.description;
+//                if(dataOfPicture)
+//                {
+//                    dataStruct.image  = [UIImage imageWithData:dataOfPicture]; 
+//                }
+            }
+            else
+            {
+                restaurant = [data objectAtIndex:i];
+                dataStruct.name = [restaurant valueForKey:@"name"];
+                dataStruct.subwayStation = [restaurant valueForKey:@"Metro"];
+                dataStruct.street = [restaurant valueForKey:@"Street"];
+                dataStruct.additionalContactInfo = [restaurant valueForKey:@"AdditionalContactInfo"];
+                dataStruct.build = [restaurant valueForKey:@"House"];
+                dataStruct.additionalAddressInfo = [restaurant valueForKey:@"AdditionalAddressInfo"];
+                [array addObject:dataStruct];
+            }
+        }
+        _arrayData = array;
+        
+        
+        return _arrayData;
+    }
+    return _arrayData;
+}
+
+- (GettingCoreContent *)db
+{
+    if(!_db)
+    {
+        _db = [[GettingCoreContent alloc] init];
+    }
+    return  _db;
+}
+
+- (void)setDataStruct:(RestaurantDataStruct *)dataStruct
+{
+    _dataStruct = dataStruct;
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+ 
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+    // e.g. self.myOutlet = nil;
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    // Return the number of sections.
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    // Return the number of rows in the section.
+    return self.arrayData.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *CellIdentifier = @"RestaurantCell";
+    _cell = (RestaurantCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    _dataStruct = [self.arrayData objectAtIndex:indexPath.row];
+    if(!_cell)
+    {
+        NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"RestaurantCell" owner:nil options:nil];
+        for(id currentObject in topLevelObjects)
+        {
+            if([currentObject isKindOfClass:[RestaurantCell class]])
+            {
+                _cell = (RestaurantCell *)currentObject;
+                break;
+            }
+        }
+    }
+    _cell.restaurantName.text = _dataStruct.name;
+    _cell.restaurantSubway.text = _dataStruct.subwayStation;
+    _cell.restaurantPhones.text = _dataStruct.phones;
+    _cell.restaurantPlace.text = [NSString stringWithFormat:@"%@, %@", _dataStruct.street, _dataStruct.build];
+    
+    NSData *dataOfPicture = [self.db fetchPictureDataByPictureId:_dataStruct.idPicture];
+    if(dataOfPicture)
+    {
+        _cell.restaurantImage.image = [UIImage imageWithData:dataOfPicture];
+    }
+    else
+    {
+        if (checkConnection.hasConnectivity)
+        {
+            self.loadingView = [[SSLoadingView alloc] initWithFrame:_cell.restaurantImage.frame];
+            self.loadingView.backgroundColor = [UIColor clearColor];
+            self.loadingView.activityIndicatorView.color = [UIColor whiteColor];
+            self.loadingView.textLabel.textColor = [UIColor whiteColor];
+            self.loadingView.textLabel.text = @"";
+            [self.view addSubview:self.loadingView];
+        }
+    }
+    
+    CAGradientLayer *gradient = [CAGradientLayer layer];
+    gradient.frame = _cell.bounds;
+    gradient.cornerRadius = 8.0f;
+    [gradient setBorderWidth:0.5f];
+    [gradient setBorderColor:[[UIColor darkGrayColor] CGColor]];
+    gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor blackColor] CGColor], (id)[[UIColor darkGrayColor] CGColor],(id)[[UIColor blackColor] CGColor], nil];
+    [_cell.layer insertSublayer:gradient atIndex:0];
+    
+//    if (!dataStruct.image)
+//    {
+//        if (self.tableView.dragging == NO && self.tableView.decelerating == NO)
+//        {
+//            [self startIconDownload:dataStruct forIndexPath:indexPath];
+//        }
+//        // if a download is deferred or in progress, return a placeholder image  
+//        cell.productImage.image = [UIImage imageNamed:@"Placeholder.png"];
+//        
+//    }
+//    else
+//    {
+//        cell.productImage.image = dataStruct.image;
+//    }
+    
+    return _cell;
+}
+
+- (void) viewDidAppear:(BOOL)animated
+{
+    if (!self.dataStruct.image && isDownloadingPicture == NO && checkConnection.hasConnectivity)
+    {
+        isDownloadingPicture = YES;
+        [self performSelectorInBackground:@selector(downloadingPic) withObject:nil];
+    }
+}
+
+- (void)downloadingPic
+{
+    NSURL *url = [self.db fetchImageURLbyPictureID:self.dataStruct.idPicture];
+    NSData *dataOfPicture = [NSData dataWithContentsOfURL:url];
+    [self.db SavePictureToCoreData:self.dataStruct.idPicture toData:dataOfPicture];
+    _cell.restaurantImage.image = [UIImage imageWithData:dataOfPicture];
+    [self.loadingView removeFromSuperview];
+    [_cell.restaurantImage reloadInputViews];
+}
+/*
+// Override to support conditional editing of the table view.
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Return NO if you do not want the specified item to be editable.
+    return YES;
+}
+*/
+
+/*
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        // Delete the row from the data source
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }   
+    else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+    }   
+}
+*/
+
+/*
+// Override to support rearranging the table view.
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+{
+}
+*/
+
+/*
+// Override to support conditional rearranging of the table view.
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Return NO if you do not want the item to be re-orderable.
+    return YES;
+}
+*/
+
+#pragma mark - Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Navigation logic may go here. Create and push another view controller.
+    /*
+     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+     // ...
+     // Pass the selected object to the new view controller.
+     [self.navigationController pushViewController:detailViewController animated:YES];
+     */
+    self.selectedRow = indexPath.row;
+    [self performSegueWithIdentifier:@"toRestaurantDetail" sender:self];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    [segue.destinationViewController setDataStruct:[self.arrayData objectAtIndex:self.selectedRow]];
+}
+
+@end
