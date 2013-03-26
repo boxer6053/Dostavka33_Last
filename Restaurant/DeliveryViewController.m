@@ -594,12 +594,18 @@
                 NSMutableDictionary *productsDict = [[NSMutableDictionary alloc]init];
                 NSString *prodId = [NSString stringWithFormat:@"%@;",[[cartArray objectAtIndex:i] valueForKey:@"underbarid"]];
                 NSString *count = [NSString stringWithFormat:@"%@;",[[cartArray objectAtIndex:i] valueForKey:@"count"]];
-                NSString *size = [NSString stringWithFormat:@"%@;",[[cartArray objectAtIndex:i] valueForKey:@"size"]];
+                if ([[[cartArray objectAtIndex:i] valueForKey:@"isMultisize"] intValue])
+                {
+                    NSString *size = [NSString stringWithFormat:@"%@;",[[cartArray objectAtIndex:i] valueForKey:@"size"]];
+                    [productsDict setObject:size forKey:@"size"];
+                }
                 NSArray *productIngredientsIds = [[[GettingCoreContent alloc] init] fetchAllIngredientsIdWithProductId: [NSNumber numberWithFloat: prodId.floatValue] fromEntity:@"Cart_Products_Ingredients"];
                 [productsDict setObject:prodId forKey:@"ProdId"];
                 [productsDict setObject:count forKey:@"counts"];
-                [productsDict setObject:size forKey:@"size"];
-                [productsDict setObject:productIngredientsIds forKey:@"ingredients"];
+                if ([[[cartArray objectAtIndex:i] valueForKey:@"isTopping"] intValue])
+                {
+                    [productsDict setObject:productIngredientsIds forKey:@"ingredients"];
+                }
                 [arrayOfProducts addObject:productsDict];
             }
             [self.dictionary setObject:arrayOfProducts forKey:@"Products"];
