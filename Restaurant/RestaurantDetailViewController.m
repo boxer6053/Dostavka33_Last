@@ -80,10 +80,10 @@
     }
     if([segue.identifier isEqualToString:@"toReservationViewController"])
     {
-    NSString *idstring = self.dataStruct.restaurantId;
-    NSString *restaurantName = self.dataStruct.name;
-    [segue.destinationViewController setRestaurantId:idstring];
-    [segue.destinationViewController setRestaurantName:restaurantName];
+        NSString *idstring = self.dataStruct.restaurantId;
+        NSString *restaurantName = self.dataStruct.name;
+        [segue.destinationViewController setRestaurantId:idstring];
+        [segue.destinationViewController setRestaurantName:restaurantName];
     }
 }
 
@@ -92,6 +92,14 @@
     [super viewDidLoad];
     
     // --------------------------------------------- SCROLL VIEW -------------------------------------------------------
+    if ([[UIScreen mainScreen] bounds].size.height == 568)
+    {
+        [self.scroll setFrame:CGRectMake(0, 344, 142, 200)];
+        [self.showOnMapButton setFrame:CGRectMake(150, 344, 150, 35)];
+        [self.reserveButton setFrame:CGRectMake(150, 381, 150, 35)];
+        [self.callButton setFrame:CGRectMake(150, 421, 150, 35)];
+    }
+    
     _scroll.contentSize = CGSizeMake(142, 200);
     _scroll.scrollEnabled = YES;
     [_scroll setShowsVerticalScrollIndicator:NO];
@@ -103,32 +111,32 @@
     
     NSString *testString1 = [NSString stringWithFormat:@"%@", _dataStruct.parking];
     if([testString1 isEqualToString: @"1"]){self.restDetParking.text = @"+";} else {self.restDetParking.text = @"-";}
-
+    
     // dynamic adding to ScrollView
     _textTerraceLabel = [[UITextField alloc] initWithFrame:CGRectMake(10, 100, 142, 17)];
     _textTerraceLabel.textColor = [UIColor orangeColor];
     _textTerraceLabel.font = [UIFont systemFontOfSize:13];
-  
+    
     UITextField *textTerrace = [[UITextField alloc] initWithFrame:CGRectMake(87, 100, 142, 17)];
     textTerrace.textColor = [UIColor whiteColor];
     NSString *testString2 = [NSString stringWithFormat:@"%@", _dataStruct.terrace];
     if([testString2 isEqualToString: @"1"]){textTerrace.text = @"+";} else {textTerrace.text = @"-";}
     textTerrace.font = [UIFont systemFontOfSize:13];
-
+    
     UITextField *textEmailLabel = [[UITextField alloc] initWithFrame:CGRectMake(10, textTerrace.frame.origin.y + 17, 142, 17)];
     textEmailLabel.textColor = [UIColor orangeColor];
     textEmailLabel.text = @"Email: ";
     textEmailLabel.font = [UIFont systemFontOfSize:13];
- 
+    
     UITextField *textEmail = [[UITextField alloc] initWithFrame:CGRectMake(10, textEmailLabel.frame.origin.y + 14, 142, 17)];
     textEmail.textColor = [UIColor whiteColor];
     textEmail.text = [NSString stringWithFormat:@"%@",_dataStruct.additionalContactInfo];
     textEmail.font = [UIFont systemFontOfSize:13];
-
+    
     _textPhonesLabel = [[UITextField alloc] initWithFrame:CGRectMake(10, textEmail.frame.origin.y + 17, 142, 17)];
     _textPhonesLabel.textColor = [UIColor orangeColor];
     _textPhonesLabel.font = [UIFont systemFontOfSize:13];
-
+    
     UITextField *textPhones = [[UITextField alloc] initWithFrame:CGRectMake(10, _textPhonesLabel.frame.origin.y + 14, 142, 17)];
     textPhones.textColor = [UIColor whiteColor];
     textPhones.text = [NSString stringWithFormat:@"%@",_dataStruct.phones];
@@ -141,7 +149,7 @@
     [_scroll addSubview: textEmail];
     [_scroll addSubview: _textPhonesLabel];
     [_scroll addSubview: textPhones];
-//----------------------------------------------------------------------------------------------------------------------
+    //----------------------------------------------------------------------------------------------------------------------
     
     
     [self setAllTitlesOnThisPage];
@@ -163,7 +171,7 @@
             self.loadingView.textLabel.text = @"";
             [self.view addSubview:self.loadingView];
         }
-
+        
     }
     CAGradientLayer *gradient = [CAGradientLayer layer];
     gradient.frame = self.view.bounds;
@@ -239,7 +247,7 @@
     {
         if ([[[array objectAtIndex:i] valueForKey:@"name_EN"] isEqualToString:@"Working time"])
         {
-           self.restDetWorkingTimeLabel.text = [[array objectAtIndex:i] valueForKey:@"title"];
+            self.restDetWorkingTimeLabel.text = [[array objectAtIndex:i] valueForKey:@"title"];
         }
         
         else if ([[[array objectAtIndex:i] valueForKey:@"name_EN"] isEqualToString:@"Phones"])

@@ -106,12 +106,12 @@
     self.street.text = [self.dictionary objectForKey:@"street"];
     self.build.text =  [self.dictionary objectForKey:@"house"];
     self.appartaments.text = [self.dictionary objectForKey:@"room_office"];
-//    self.metroName.text = [self.dictionary objectForKey:@"metro"];
-//    self.floor.text = [self.dictionary objectForKey:@"floor"];
-//    self.intercom.text = [self.dictionary objectForKey:@"intercom"];
-//    self.access.text = [self.dictionary objectForKey:@"access"];
+    //    self.metroName.text = [self.dictionary objectForKey:@"metro"];
+    //    self.floor.text = [self.dictionary objectForKey:@"floor"];
+    //    self.intercom.text = [self.dictionary objectForKey:@"intercom"];
+    //    self.access.text = [self.dictionary objectForKey:@"access"];
     self.otherInformation.text = [self.dictionary objectForKey:@"additional_info"];
-//    self.deliveryTime.text = [self.dictionary objectForKey:@"deliveryTime"];
+    //    self.deliveryTime.text = [self.dictionary objectForKey:@"deliveryTime"];
     
     self.dictionary = nil;
 }
@@ -172,8 +172,8 @@
     CLLocation *currentLocation = newLocation;
     
     if (currentLocation != nil) {
-//        self.longtitude = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.longitude];
-//        self.latitude = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.latitude];
+        //        self.longtitude = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.longitude];
+        //        self.latitude = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.latitude];
     }
     
     // Stop Location Manager
@@ -191,12 +191,12 @@
             //                                      placemark.administrativeArea,
             //                                      placemark.country];
             
-//            self.subThoroughfare = [NSString stringWithString:placemark.subThoroughfare];
+            //            self.subThoroughfare = [NSString stringWithString:placemark.subThoroughfare];
             self.street.text = [NSString stringWithString:placemark.thoroughfare];
-//            self.postalCode = [NSString stringWithString:placemark.postalCode];
+            //            self.postalCode = [NSString stringWithString:placemark.postalCode];
             self.CityName.text = [NSString stringWithString:placemark.locality];
-//            self.administrativeArea = [NSString stringWithString:placemark.administrativeArea];
-//            self.country = [NSString stringWithString:placemark.country];
+            //            self.administrativeArea = [NSString stringWithString:placemark.administrativeArea];
+            //            self.country = [NSString stringWithString:placemark.country];
         } else {
             NSLog(@"%@", error.debugDescription);
         }
@@ -212,14 +212,14 @@
     
     [self getCurrentLocation];
     
-//    GettingLocationInfo *localInfo = [[GettingLocationInfo alloc] init];
-//    [localInfo findLocation];
-//    
-//    NSString *street = [localInfo thoroughfare];
-//    NSString *city = [localInfo locality];
+    //    GettingLocationInfo *localInfo = [[GettingLocationInfo alloc] init];
+    //    [localInfo findLocation];
+    //
+    //    NSString *street = [localInfo thoroughfare];
+    //    NSString *city = [localInfo locality];
     
-//    NSString *cityName = [self getCurrentCityName];
-//    self.CityName.text = cityName;
+    //    NSString *cityName = [self getCurrentCityName];
+    //    self.CityName.text = cityName;
     
     CAGradientLayer *mainGradient = [CAGradientLayer layer];
     mainGradient.frame = self.scrollView.bounds;
@@ -229,7 +229,7 @@
     [self setAllTitlesOnThisPage];
 	
     self.scrollView.contentSize = CGSizeMake(320, 430);
-
+    
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
     
     [nc addObserver:self selector:@selector(keyboardWillShow:) name:
@@ -239,8 +239,14 @@
      UIKeyboardWillHideNotification object:nil];
     
     self.tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
-                                                            action:@selector(didTapAnywhere:)];
-    
+                                                                 action:@selector(didTapAnywhere:)];
+    if ([[UIScreen mainScreen] bounds].size.height == 568)
+    {
+        
+        [self.toOrderButton setFrame:CGRectMake(self.toOrderButton.frame.origin.x, 440, self.toOrderButton.frame.size.width, self.toOrderButton.frame.size.height)];
+        [self.saveAddressButton setFrame:CGRectMake(self.saveAddressButton.frame.origin.x, 440, self.saveAddressButton.frame.size.width, self.saveAddressButton.frame.size.height)];
+        
+    }
     //перевіряєм чи доставка по часу
     if (!self.enableTime)
     {
@@ -248,21 +254,21 @@
     }
     else
     {
-//        NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"TimePicker" owner:nil options:nil];
-//        for(id currentObject in topLevelObjects)
-//        {
-//            if([currentObject isKindOfClass:[TimePicker class]])
-//            {
-//                self.pickerViewContainer = (TimePicker *)currentObject;
-//                break;
-//            }
-//        }
-//        self.pickerViewContainer.frame = CGRectMake(0, 590, 320, 260);
-//        [self.pickerViewContainer.okButton setTarget:self];
-//        [self.pickerViewContainer.okButton setAction:@selector(okButton)];
-//        
-//        [self.pickerViewContainer.hideButton setTarget:self];
-//        [self.pickerViewContainer.hideButton setAction:@selector(hideButton)];
+        //        NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"TimePicker" owner:nil options:nil];
+        //        for(id currentObject in topLevelObjects)
+        //        {
+        //            if([currentObject isKindOfClass:[TimePicker class]])
+        //            {
+        //                self.pickerViewContainer = (TimePicker *)currentObject;
+        //                break;
+        //            }
+        //        }
+        //        self.pickerViewContainer.frame = CGRectMake(0, 590, 320, 260);
+        //        [self.pickerViewContainer.okButton setTarget:self];
+        //        [self.pickerViewContainer.okButton setAction:@selector(okButton)];
+        //
+        //        [self.pickerViewContainer.hideButton setTarget:self];
+        //        [self.pickerViewContainer.hideButton setAction:@selector(hideButton)];
     }
 }
 
@@ -272,15 +278,15 @@
     [self setCustomerName:nil];
     [self setPhone:nil];
     [self setCityName:nil];
-//    [self setMetroName:nil];
+    //    [self setMetroName:nil];
     [self setStreet:nil];
     [self setBuild:nil];
     [self setAppartaments:nil];
     [self setOtherInformation:nil];
     [self setScrollView:nil];
-//    [self setFloor:nil];
-//    [self setAccess:nil];
-//    [self setIntercom:nil];
+    //    [self setFloor:nil];
+    //    [self setAccess:nil];
+    //    [self setIntercom:nil];
     [self setDeliveryTime:nil];
     [self setToOrderButton:nil];
     [self setSaveAddressButton:nil];
@@ -293,7 +299,7 @@
 #pragma mark TextFields and keyboards features
 ///////////////////////////////////////////////
 
-- (BOOL)textFieldShouldReturn:(UITextField *)theTextField 
+- (BOOL)textFieldShouldReturn:(UITextField *)theTextField
 {
     [theTextField resignFirstResponder];
     self.scrollView.contentSize = CGSizeMake(320, 430);
@@ -343,14 +349,14 @@
             NSDate *date = [[self.pickerViewContainer.datePicker date] dateByAddingTimeInterval:twoHours];
             [self.pickerViewContainer.datePicker setMinimumDate:date];
             
-//            [self.view addSubview:self.pickerViewContainer];
+            //            [self.view addSubview:self.pickerViewContainer];
         }
         
         self.pickerViewContainer.frame = CGRectMake(0, 330, 320, 260);
         [self.view addSubview:self.pickerViewContainer];
         [UIView commitAnimations];
         
-//        [self.view addGestureRecognizer:self.tapRecognizer];
+        //        [self.view addGestureRecognizer:self.tapRecognizer];
         return NO;
     }
     return YES;
@@ -374,7 +380,7 @@
     }
     else
     {
-//        self.scrollView.contentSize = CGSizeMake(320, 430);
+        //        self.scrollView.contentSize = CGSizeMake(320, 430);
     }
 }
 
@@ -393,10 +399,10 @@
             }
     }
     
-//    if (textField == self.appartaments || textField == self.build || textField == self.street || textField == self.otherInformation || textField == self.deliveryTime)
-//    {
-////        self.scrollView.contentSize = CGSizeMake(320, 430);
-//    }
+    //    if (textField == self.appartaments || textField == self.build || textField == self.street || textField == self.otherInformation || textField == self.deliveryTime)
+    //    {
+    ////        self.scrollView.contentSize = CGSizeMake(320, 430);
+    //    }
 }
 
 -(void) keyboardWillShow:(NSNotification *) note
@@ -408,7 +414,7 @@
     
     if ([self.appartaments isEditing] || [self.build isEditing] || [self.street isEditing] || [self.otherInformation isEditing])
     {
-//        self.scrollView.contentSize = CGSizeMake(320, 590);
+        //        self.scrollView.contentSize = CGSizeMake(320, 590);
         CGFloat tempy = self.scrollView.contentSize.height;//imageView.frame.size.height;
         CGFloat tempx = self.scrollView.contentSize.width;;
         CGRect zoomRect = CGRectMake((tempx/2), (tempy/2), tempy, tempx);
@@ -421,7 +427,7 @@
     self.pickerViewContainer.frame = CGRectMake(0, 590, 320, 260);
     [UIView commitAnimations];
     
-        [self performSelector:@selector(removingPickerContainer) withObject:nil afterDelay:0.5];
+    [self performSelector:@selector(removingPickerContainer) withObject:nil afterDelay:0.5];
 }
 
 -(void) keyboardWillHide:(NSNotification *) note
@@ -429,12 +435,12 @@
     [self.view removeGestureRecognizer:self.tapRecognizer];
 }
 
--(void)didTapAnywhere: (UITapGestureRecognizer*) recognizer {    
+-(void)didTapAnywhere: (UITapGestureRecognizer*) recognizer {
     [self.addressName resignFirstResponder];
     [self.customerName resignFirstResponder];
     [self.phone resignFirstResponder];
     [self.CityName resignFirstResponder];
-//    [self.metroName resignFirstResponder];
+    //    [self.metroName resignFirstResponder];
     [self.street resignFirstResponder];
     [self.build resignFirstResponder];
     [self.appartaments resignFirstResponder];
@@ -443,10 +449,10 @@
     
     self.scrollView.contentSize = CGSizeMake(320, 430);
     
-//    [UIView beginAnimations:nil context:NULL];
-//    [UIView setAnimationDuration:0.3];
-//    self.pickerViewContainer.frame = CGRectMake(0, 590, 320, 260);
-//    [UIView commitAnimations];
+    //    [UIView beginAnimations:nil context:NULL];
+    //    [UIView setAnimationDuration:0.3];
+    //    self.pickerViewContainer.frame = CGRectMake(0, 590, 320, 260);
+    //    [UIView commitAnimations];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -467,8 +473,8 @@
     [UIView commitAnimations];
     
     [self performSelector:@selector(removingPickerContainer) withObject:nil afterDelay:0.5];
-//    self.scrollView.contentSize = CGSizeMake(320, 430);
-//    [self.pickerViewContainer removeFromSuperview];
+    //    self.scrollView.contentSize = CGSizeMake(320, 430);
+    //    [self.pickerViewContainer removeFromSuperview];
 }
 
 - (void)okButton
@@ -491,7 +497,7 @@
     [UIView commitAnimations];
     
     [self performSelector:@selector(removingPickerContainer) withObject:nil afterDelay:0.5];
-//    self.scrollView.contentSize = CGSizeMake(320, 430);
+    //    self.scrollView.contentSize = CGSizeMake(320, 430);
 }
 
 - (void)removingPickerContainer
@@ -508,7 +514,7 @@
     }
     else
         self.scrollView.contentSize = CGSizeMake(320, 430);
-//    pickerViewContainer = nil;
+    //    pickerViewContainer = nil;
 }
 
 
@@ -518,181 +524,181 @@
 /////////////////////////////////////////////////////
 
 //send info to the server
-- (IBAction)toOrder:(id)sender 
+- (IBAction)toOrder:(id)sender
 {
-//    if (!self.enableTime)
-//    {
-        self.scrollView.contentSize = CGSizeMake(320, 430);
-        if ([self checkForLiteracy])
+    //    if (!self.enableTime)
+    //    {
+    self.scrollView.contentSize = CGSizeMake(320, 430);
+    if ([self checkForLiteracy])
+    {
+        if ([self checkForNumberCount])
         {
-            if ([self checkForNumberCount])
+            //save address
+            self.dictionary = [[NSMutableDictionary alloc] init];
+            [self.dictionary setObject:self.addressName.text forKey:@"name"];
+            [self.dictionary setObject:self.customerName.text forKey:@"username"];
+            [self.dictionary setObject:self.phone.text forKey:@"phone"];
+            [self.dictionary setObject:self.CityName.text forKey:@"city"];
+            [self.dictionary setObject:self.street.text forKey:@"street"];
+            [self.dictionary setObject:self.build.text forKey:@"house"];
+            [self.dictionary setObject:self.appartaments.text forKey:@"room_office"];
+            //        [self.dictionary setObject:self.metroName.text forKey:@"metro"];
+            //        [self.dictionary setObject:self.floor.text forKey:@"floor"];
+            //        [self.dictionary setObject:self.intercom.text forKey:@"intercom"];
+            //        [self.dictionary setObject:self.access.text forKey:@"access"];
+            [self.dictionary setObject:self.otherInformation.text forKey:@"additional_info"];
+            //            [self.dictionary setObject:self.deliveryTime.text forKey:@"deliveryTime"];
+            
+            [self.content addObjectToEntity:@"Addresses" withDictionaryOfAttributes:self.dictionary.copy];
+            //
+            //            UIActivityIndicatorView *activityView=[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+            //            activityView.backgroundColor = [UIColor darkTextColor];
+            //            self.scrollView.frame = self.parentViewController.view.frame;
+            //            activityView.frame = self.parentViewController.view.frame;
+            //            activityView.center=self.view.center;
+            //            [activityView startAnimating];
+            //            [self.view addSubview:activityView];
+            
+            
+            //    NSString *orderStringUrl = [@"http://matrix-soft.org/addon_domains_folder/test5/root/Customer_Scripts/makeOrder.php?tag=" stringByAppendingString: @"order"];
+            //    orderStringUrl = [orderStringUrl stringByAppendingString: @"&DBid=10&UUID=fdsampled-roma-roma-roma-69416d19df4e&ProdIDs=9;11&counts=30;5&city=Kyiv&street=qweqw&house=1&room_office=232&custName=eqweqwewqewe&phone=+380(099)9999999&idDelivery=1"];
+            
+            
+            NSMutableString *order = [NSMutableString stringWithFormat:@"%@%@%@%@", [[NSUserDefaults standardUserDefaults] valueForKey:@"dbLink"], @"/Customer_Scripts/v2/makeOrder.php?", [[NSUserDefaults standardUserDefaults] valueForKey:@"DBid"], @"&tag=order&idPhone=1&UUID="];
+            //                [self.dictionary setObject: [[NSUserDefaults standardUserDefaults] valueForKey:@"DBid"] forKey:@"DBid"];
+            
+            //                This is for using on device
+            
+            //                NSString *deviceToken = [(RestaurantAppDelegate *)[[UIApplication sharedApplication] delegate] testToken1];
+            //                [self.dictionary setObject: deviceToken forKey:@"UUID"];
+            
+            
+            //                this is for simulation
+            if (![[NSUserDefaults standardUserDefaults] objectForKey:@"uid"])
             {
-                //save address
-                self.dictionary = [[NSMutableDictionary alloc] init];
-                [self.dictionary setObject:self.addressName.text forKey:@"name"];
-                [self.dictionary setObject:self.customerName.text forKey:@"username"];
-                [self.dictionary setObject:self.phone.text forKey:@"phone"];
-                [self.dictionary setObject:self.CityName.text forKey:@"city"];
-                [self.dictionary setObject:self.street.text forKey:@"street"];
-                [self.dictionary setObject:self.build.text forKey:@"house"];
-                [self.dictionary setObject:self.appartaments.text forKey:@"room_office"];
-                //        [self.dictionary setObject:self.metroName.text forKey:@"metro"];
-                //        [self.dictionary setObject:self.floor.text forKey:@"floor"];
-                //        [self.dictionary setObject:self.intercom.text forKey:@"intercom"];
-                //        [self.dictionary setObject:self.access.text forKey:@"access"];
-                [self.dictionary setObject:self.otherInformation.text forKey:@"additional_info"];
-                //            [self.dictionary setObject:self.deliveryTime.text forKey:@"deliveryTime"];
-                
-                [self.content addObjectToEntity:@"Addresses" withDictionaryOfAttributes:self.dictionary.copy];
-                //
-                //            UIActivityIndicatorView *activityView=[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-                //            activityView.backgroundColor = [UIColor darkTextColor];
-                //            self.scrollView.frame = self.parentViewController.view.frame;
-                //            activityView.frame = self.parentViewController.view.frame;
-                //            activityView.center=self.view.center;
-                //            [activityView startAnimating];
-                //            [self.view addSubview:activityView];
-                
-                
-                //    NSString *orderStringUrl = [@"http://matrix-soft.org/addon_domains_folder/test5/root/Customer_Scripts/makeOrder.php?tag=" stringByAppendingString: @"order"];
-                //    orderStringUrl = [orderStringUrl stringByAppendingString: @"&DBid=10&UUID=fdsampled-roma-roma-roma-69416d19df4e&ProdIDs=9;11&counts=30;5&city=Kyiv&street=qweqw&house=1&room_office=232&custName=eqweqwewqewe&phone=+380(099)9999999&idDelivery=1"];
-                
-                
-                NSMutableString *order = [NSMutableString stringWithFormat:@"%@%@%@%@", [[NSUserDefaults standardUserDefaults] valueForKey:@"dbLink"], @"/Customer_Scripts/v2/makeOrder.php?", [[NSUserDefaults standardUserDefaults] valueForKey:@"DBid"], @"&tag=order&idPhone=1&UUID="];
-//                [self.dictionary setObject: [[NSUserDefaults standardUserDefaults] valueForKey:@"DBid"] forKey:@"DBid"];
-                
-//                This is for using on device
-                
-//                NSString *deviceToken = [(RestaurantAppDelegate *)[[UIApplication sharedApplication] delegate] testToken1];
-//                [self.dictionary setObject: deviceToken forKey:@"UUID"]; 
-                
-                
-//                this is for simulation
-                if (![[NSUserDefaults standardUserDefaults] objectForKey:@"uid"])
-                {
-                    NSString *uid = [self createUUID];
-                    [[NSUserDefaults standardUserDefaults] setValue:uid forKey:@"uid"];
-                    //9E3C884C-6E57-4D16-884F-46132825F21E
-                    [[NSUserDefaults standardUserDefaults] synchronize];
-                    [order  appendString:uid];
-                }
-                else
-                {
-                    [order appendString:[[NSUserDefaults standardUserDefaults] objectForKey:@"uid"]];
-                }
-                
-                NSArray *cartArray = [[[GettingCoreContent alloc] init] fetchAllProductsIdAndTheirCountWithPriceForEntity:@"Cart"];
-                NSMutableArray *arrayOfProducts = [[NSMutableArray alloc]init];
-                for (int i = 0; i < cartArray.count; i++)
-                {
-                    NSMutableDictionary *productsDict = [[NSMutableDictionary alloc]init];
-                    NSString *prodId = [NSString stringWithFormat:@"%@;",[[cartArray objectAtIndex:i] valueForKey:@"underbarid"]];
-                    NSString *count = [NSString stringWithFormat:@"%@;",[[cartArray objectAtIndex:i] valueForKey:@"count"]];
-                    NSString *size = [NSString stringWithFormat:@"%@;",[[cartArray objectAtIndex:i] valueForKey:@"size"]];
-                    NSArray *productIngredientsIds = [[[GettingCoreContent alloc] init] fetchAllIngredientsIdWithProductId: [NSNumber numberWithFloat: prodId.floatValue] fromEntity:@"Cart_Products_Ingredients"];
-                    [productsDict setObject:prodId forKey:@"ProdId"];
-                    [productsDict setObject:count forKey:@"counts"];
-                    [productsDict setObject:size forKey:@"size"];
-                    [productsDict setObject:productIngredientsIds forKey:@"ingredients"];
-                    [arrayOfProducts addObject:productsDict];
-                }
-                [self.dictionary setObject:arrayOfProducts forKey:@"Products"];
-                
-                NSString *jsonString = [self.dictionary JSONString];
-                
-                NSLog(@"jsonRequest is %@", jsonString);
-                
-//                self.ids = ids;
-//                self.counts = counts;
-                
-                
-                //            NSDate *date = [NSDate date];
-                //            NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-                //            [dateFormat setDateFormat:@"dd.MM.yyyy"];
-                //            NSString *dateString = [dateFormat stringFromDate:date];
-                //
-                //            self.historyDictionary = [[NSMutableDictionary alloc] init];
-                //            [self.historyDictionary setObject:addressName.text forKey:@"name"];
-                //            [self.historyDictionary setObject:build.text forKey:@"house"];
-                //            [self.historyDictionary setObject:CityName.text forKey:@"city"];
-                //            [self.historyDictionary setObject:dateString forKey:@"date"];
-                //            [self.historyDictionary setObject:@"deliveryID" forKey:@"deliveryID"];
-                ////            [self.historyDictionary setObject:@"floor" forKey:@"floor"];
-                //            [self.historyDictionary setObject:@"metro" forKey:@"metro"];
-                //            [self.historyDictionary setObject:@"orderID" forKey:@"orderID"];
-                //            [self.historyDictionary setObject:counts forKey:@"productsCounts"];
-                //            [self.historyDictionary setObject:ids forKey:@"productsIDs"];
-                //            [self.historyDictionary setObject:self.appartaments.text forKey:@"room_office"];
-                //            [self.historyDictionary setObject:@"status id" forKey:@"statusID"];
-                //            [self.historyDictionary setObject:self.street.text forKey:@"street"];
-                //
-                //            [self.content addObjectToCoreDataEntity:@"CustomerOrders" withDictionaryOfAttributes:self.historyDictionary.copy];
-                
-                
-//                NSString *deliveryType;
-//                if (!self.enableTime)
-//                    deliveryType = @"1";
-//                else
-//                    deliveryType = @"2";
-//                
-//                [order appendFormat:@"&ProdIDs=%@&counts=%@&city=%@&street=%@&house=%@&room_office=%@&custName=%@&phone=%@&additional_info=%@&deliveryType=%@&deliveryTime=%@",ids,counts,self.CityName.text,self.street.text,self.build.text,self.appartaments.text,self.customerName.text,self.phone.text,self.otherInformation.text, deliveryType,self.dateString];
-//                
-//                order = [order stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding].copy;
-//                NSLog(@"order url = %@", order);
-                
-                //NSData *requestData = [NSData dataWithBytes:[jsonString UTF8String] length:[jsonString length]];
-
-                [order appendString:jsonString];
-                order = [order stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding].copy;
-                NSURL *url = [NSURL URLWithString:order.copy];
-                NSLog(@"Request string:%@", url);
-                
-                NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
-                [request setHTTPMethod:@"POST"];
-                NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-
-                
-                self.scrollView.frame = self.parentViewController.view.frame;
-                self.hudView = [[SSHUDView alloc] init];
-                hudView.backgroundColor = [UIColor clearColor];
-                [self.hudView show];
-                
-                if (!theConnection)
-                {
-                    // Inform the user that the connection failed.
-                    UIAlertView *connectFailMessage = [[UIAlertView alloc] initWithTitle:@"NSURLConnection" 
-                                                                                 message:@"Not success"  
-                                                                                delegate:self
-                                                                       cancelButtonTitle:@"Ok"
-                                                                       otherButtonTitles:nil];
-                    [connectFailMessage show];
-                }
-
+                NSString *uid = [self createUUID];
+                [[NSUserDefaults standardUserDefaults] setValue:uid forKey:@"uid"];
+                //9E3C884C-6E57-4D16-884F-46132825F21E
+                [[NSUserDefaults standardUserDefaults] synchronize];
+                [order  appendString:uid];
             }
             else
             {
-                UIAlertView *connectFailMessage = [[UIAlertView alloc] initWithTitle:self.titleIncorectPhoneNumber
-                                                                             message:nil //@"Not success"
+                [order appendString:[[NSUserDefaults standardUserDefaults] objectForKey:@"uid"]];
+            }
+            
+            NSArray *cartArray = [[[GettingCoreContent alloc] init] fetchAllProductsIdAndTheirCountWithPriceForEntity:@"Cart"];
+            NSMutableArray *arrayOfProducts = [[NSMutableArray alloc]init];
+            for (int i = 0; i < cartArray.count; i++)
+            {
+                NSMutableDictionary *productsDict = [[NSMutableDictionary alloc]init];
+                NSString *prodId = [NSString stringWithFormat:@"%@;",[[cartArray objectAtIndex:i] valueForKey:@"underbarid"]];
+                NSString *count = [NSString stringWithFormat:@"%@;",[[cartArray objectAtIndex:i] valueForKey:@"count"]];
+                NSString *size = [NSString stringWithFormat:@"%@;",[[cartArray objectAtIndex:i] valueForKey:@"size"]];
+                NSArray *productIngredientsIds = [[[GettingCoreContent alloc] init] fetchAllIngredientsIdWithProductId: [NSNumber numberWithFloat: prodId.floatValue] fromEntity:@"Cart_Products_Ingredients"];
+                [productsDict setObject:prodId forKey:@"ProdId"];
+                [productsDict setObject:count forKey:@"counts"];
+                [productsDict setObject:size forKey:@"size"];
+                [productsDict setObject:productIngredientsIds forKey:@"ingredients"];
+                [arrayOfProducts addObject:productsDict];
+            }
+            [self.dictionary setObject:arrayOfProducts forKey:@"Products"];
+            
+            NSString *jsonString = [self.dictionary JSONString];
+            
+            NSLog(@"jsonRequest is %@", jsonString);
+            
+            //                self.ids = ids;
+            //                self.counts = counts;
+            
+            
+            //            NSDate *date = [NSDate date];
+            //            NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+            //            [dateFormat setDateFormat:@"dd.MM.yyyy"];
+            //            NSString *dateString = [dateFormat stringFromDate:date];
+            //
+            //            self.historyDictionary = [[NSMutableDictionary alloc] init];
+            //            [self.historyDictionary setObject:addressName.text forKey:@"name"];
+            //            [self.historyDictionary setObject:build.text forKey:@"house"];
+            //            [self.historyDictionary setObject:CityName.text forKey:@"city"];
+            //            [self.historyDictionary setObject:dateString forKey:@"date"];
+            //            [self.historyDictionary setObject:@"deliveryID" forKey:@"deliveryID"];
+            ////            [self.historyDictionary setObject:@"floor" forKey:@"floor"];
+            //            [self.historyDictionary setObject:@"metro" forKey:@"metro"];
+            //            [self.historyDictionary setObject:@"orderID" forKey:@"orderID"];
+            //            [self.historyDictionary setObject:counts forKey:@"productsCounts"];
+            //            [self.historyDictionary setObject:ids forKey:@"productsIDs"];
+            //            [self.historyDictionary setObject:self.appartaments.text forKey:@"room_office"];
+            //            [self.historyDictionary setObject:@"status id" forKey:@"statusID"];
+            //            [self.historyDictionary setObject:self.street.text forKey:@"street"];
+            //
+            //            [self.content addObjectToCoreDataEntity:@"CustomerOrders" withDictionaryOfAttributes:self.historyDictionary.copy];
+            
+            
+            //                NSString *deliveryType;
+            //                if (!self.enableTime)
+            //                    deliveryType = @"1";
+            //                else
+            //                    deliveryType = @"2";
+            //
+            //                [order appendFormat:@"&ProdIDs=%@&counts=%@&city=%@&street=%@&house=%@&room_office=%@&custName=%@&phone=%@&additional_info=%@&deliveryType=%@&deliveryTime=%@",ids,counts,self.CityName.text,self.street.text,self.build.text,self.appartaments.text,self.customerName.text,self.phone.text,self.otherInformation.text, deliveryType,self.dateString];
+            //
+            //                order = [order stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding].copy;
+            //                NSLog(@"order url = %@", order);
+            
+            //NSData *requestData = [NSData dataWithBytes:[jsonString UTF8String] length:[jsonString length]];
+            
+            [order appendString:jsonString];
+            order = [order stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding].copy;
+            NSURL *url = [NSURL URLWithString:order.copy];
+            NSLog(@"Request string:%@", url);
+            
+            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+            [request setHTTPMethod:@"POST"];
+            NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+            
+            
+            self.scrollView.frame = self.parentViewController.view.frame;
+            self.hudView = [[SSHUDView alloc] init];
+            hudView.backgroundColor = [UIColor clearColor];
+            [self.hudView show];
+            
+            if (!theConnection)
+            {
+                // Inform the user that the connection failed.
+                UIAlertView *connectFailMessage = [[UIAlertView alloc] initWithTitle:@"NSURLConnection"
+                                                                             message:@"Not success"
                                                                             delegate:self
                                                                    cancelButtonTitle:@"Ok"
                                                                    otherButtonTitles:nil];
                 [connectFailMessage show];
             }
+            
         }
         else
         {
-            UIAlertView *connectFailMessage = [[UIAlertView alloc] initWithTitle:@"Fil all rows with '*'." 
-                                                                         message:nil //@"Not success"  
+            UIAlertView *connectFailMessage = [[UIAlertView alloc] initWithTitle:self.titleIncorectPhoneNumber
+                                                                         message:nil //@"Not success"
                                                                         delegate:self
                                                                cancelButtonTitle:@"Ok"
                                                                otherButtonTitles:nil];
             [connectFailMessage show];
         }
-//    }
-//    else
-//    {
-//        // send order delivery by Time
-//    }
+    }
+    else
+    {
+        UIAlertView *connectFailMessage = [[UIAlertView alloc] initWithTitle:@"Fil all rows with '*'."
+                                                                     message:nil //@"Not success"
+                                                                    delegate:self
+                                                           cancelButtonTitle:@"Ok"
+                                                           otherButtonTitles:nil];
+        [connectFailMessage show];
+    }
+    //    }
+    //    else
+    //    {
+    //        // send order delivery by Time
+    //    }
 }
 
 - (IBAction)saveAddress:(id)sender
@@ -708,10 +714,10 @@
         [self.dictionary setObject:self.street.text forKey:@"street"];
         [self.dictionary setObject:self.build.text forKey:@"house"];
         [self.dictionary setObject:self.appartaments.text forKey:@"room_office"];
-//        [self.dictionary setObject:self.metroName.text forKey:@"metro"];
-//        [self.dictionary setObject:self.floor.text forKey:@"floor"];
-//        [self.dictionary setObject:self.intercom.text forKey:@"intercom"];
-//        [self.dictionary setObject:self.access.text forKey:@"access"];
+        //        [self.dictionary setObject:self.metroName.text forKey:@"metro"];
+        //        [self.dictionary setObject:self.floor.text forKey:@"floor"];
+        //        [self.dictionary setObject:self.intercom.text forKey:@"intercom"];
+        //        [self.dictionary setObject:self.access.text forKey:@"access"];
         [self.dictionary setObject:self.otherInformation.text forKey:@"additional_info"];
         
         BOOL isSaved = [self.content addObjectToEntity:@"Addresses" withDictionaryOfAttributes:self.dictionary.copy];
@@ -719,10 +725,10 @@
         if (isSaved)
         {
             UIAlertView *message = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"Saved new address %@.", self.addressName.text]
-                                                          message:nil
-                                                         delegate:self
-                                                cancelButtonTitle:@"OK"
-                                                otherButtonTitles:nil];
+                                                              message:nil
+                                                             delegate:self
+                                                    cancelButtonTitle:@"OK"
+                                                    otherButtonTitles:nil];
             [message show];
             return;
         }
@@ -737,10 +743,10 @@
             return;
         }
     }
-    else 
+    else
     {
-        UIAlertView *connectFailMessage = [[UIAlertView alloc] initWithTitle:@"Fill all rows with '*'." 
-                                                                     message:nil //@"Not success"  
+        UIAlertView *connectFailMessage = [[UIAlertView alloc] initWithTitle:@"Fill all rows with '*'."
+                                                                     message:nil //@"Not success"
                                                                     delegate:self
                                                            cancelButtonTitle:@"Ok"
                                                            otherButtonTitles:nil];
@@ -749,10 +755,10 @@
     }
 }
 
-- (IBAction)toAddressList:(id)sender 
+- (IBAction)toAddressList:(id)sender
 {
-//    [[[AddressListTableViewController alloc] initWithNibName:@"AddressListTableViewController" bundle:[NSBundle mainBundle]] setDelegate:self];
-//    AddressListTableViewController *controller =  [[AddressListTableViewController alloc] init];
+    //    [[[AddressListTableViewController alloc] initWithNibName:@"AddressListTableViewController" bundle:[NSBundle mainBundle]] setDelegate:self];
+    //    AddressListTableViewController *controller =  [[AddressListTableViewController alloc] init];
 }
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -765,7 +771,7 @@
 }
 
 /////////////////////////////////////////////////////
-#pragma mark 
+#pragma mark
 #pragma mark working with server
 /////////////////////////////////////////////////////
 
@@ -790,7 +796,7 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection 
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
     NSLog(@"Succeeded! Received %d bytes of data",[self.responseData
                                                    length]);
@@ -844,8 +850,8 @@
             {
                 [self.hudView failAndDismissWithTitle:nil];
                 UIAlertView *message = [[UIAlertView alloc] initWithTitle:self.titleError
-                                                              message:self.titlePleaseTryAgain
-                                                                    delegate:self
+                                                                  message:self.titlePleaseTryAgain
+                                                                 delegate:self
                                                         cancelButtonTitle:@"OK"
                                                         otherButtonTitles:nil];
                 [message show];
@@ -877,7 +883,7 @@
     [self.historyDictionary setObject:@"3" forKey:@"statusID"];
     [self.historyDictionary setObject:self.street.text forKey:@"street"];
     [self.historyDictionary setObject:self.otherInformation.text forKey:@"additional_info"];
-
+    
     
     [self.content addObjectToCoreDataEntity:@"CustomerOrders" withDictionaryOfAttributes:self.historyDictionary.copy];
     
@@ -906,14 +912,14 @@
     [self removingPickerContainer];
 }
 /////////////////////////////////////////////////////
-#pragma mark 
+#pragma mark
 #pragma mark private methods
 /////////////////////////////////////////////////////
 
 -(BOOL)checkForLiteracy
 {
     if (!self.enableTime)
-    {        
+    {
         if (![self.addressName.text isEqual:@""] && ![self.customerName.text isEqual:@""] && ![self.phone.text isEqual:@""] && ![self.CityName.text isEqual:@""] && ![self.street.text isEqual:@""] && ![self.build.text isEqual:@""] && ![self.appartaments.text isEqual:@""])
         {
             return YES;
@@ -936,7 +942,7 @@
 {
     NSString *phoneNumberString = [self.phone text];
     int phoneNumberCount = [phoneNumberString length];
-
+    
     if ((phoneNumberCount > 6 && phoneNumberCount < 11)) {
         return YES;
     } else
