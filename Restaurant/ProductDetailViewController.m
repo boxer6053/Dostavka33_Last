@@ -476,7 +476,7 @@
     }
     
     if ([[UIScreen mainScreen] bounds].size.height == 568)
-    {
+    {        
         [self.pictureViewContainer setFrame:CGRectMake(self.pictureViewContainer.frame.origin.x, self.pictureViewContainer.frame.origin.y, self.pictureViewContainer.frame.size.width, 320)];
 
         [self.pictureButton setFrame:CGRectMake(0, 0, 320, 320)];
