@@ -140,31 +140,30 @@
     [super viewDidAppear:YES];
     
     //fetching pictures
-    // NSDictionary *pictures = [self.db fetchImageURLAndDatabyMenuID:self.kindOfMenu.menuId];
-    //    ProductDataStruct *dataStruct;
-    //    for (int i = 0; i < self.arrayData.count; i++)
-    //    {
-    //        dataStruct = [self.arrayData objectAtIndex:i];
-    ////        NSData *dataOfPicture = [[self.currentPictures objectForKey:dataStruct.idPicture] valueForKey:@"data"];
-    //
-    //        NSData *dataOfPicture = [[NSData alloc] initWithContentsOfFile:[[self.currentPictures objectForKey:dataStruct.idPicture] valueForKey:@"filePath"]];
-    //
-    //        NSString *urlForImage = [NSString stringWithFormat:@"http://matrix-soft.org/clients/%@",[[self.currentPictures objectForKey:dataStruct.idPicture] valueForKey:@"link"]];
-    //        urlForImage = [urlForImage stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    //        NSURL *url = [NSURL URLWithString:urlForImage];
-    ////        dataStruct.link = url.description;
-    //
-    //        //saving results of secon request
-    //        [[self.arrayData objectAtIndex:i] setLink:url.description];
-    //        if(dataOfPicture)
-    //        {
-    //            [[self.arrayData objectAtIndex:i] setImage:[UIImage imageWithData:dataOfPicture]];
-    //        }
-    //    }
-    //
-    //    [self.gmGridView reloadData];
+     NSDictionary *pictures = [self.db fetchImageURLAndDatabyMenuID:self.kindOfMenu.menuId];
+        ProductDataStruct *dataStruct;
+        for (int i = 0; i < self.arrayData.count; i++)
+        {
+            dataStruct = [self.arrayData objectAtIndex:i];
+       // NSData *dataOfPicture = [[self.currentPictures objectForKey:dataStruct.idPicture] valueForKey:@"data"];
+   
+           NSData *dataOfPicture = [[NSData alloc] initWithContentsOfFile:[[self.currentPictures objectForKey:dataStruct.idPicture] valueForKey:@"filePath"]];
     
-    //[self activePageWithId:0];
+          NSString *urlForImage = [NSString stringWithFormat:@"http://matrix-soft.org/clients/%@",[[self.currentPictures objectForKey:dataStruct.idPicture] valueForKey:@"link"]];
+           urlForImage = [urlForImage stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+          NSURL *url = [NSURL URLWithString:urlForImage];
+           dataStruct.link = url.description;
+    
+           //saving results of secon request
+           [[self.arrayData objectAtIndex:i] setLink:url.description];
+           if(dataOfPicture)
+           {
+               [[self.arrayData objectAtIndex:i] setImage:[UIImage imageWithData:dataOfPicture]];
+          }
+        }
+       [self.gmGridView reloadData];
+    
+  // [self activePageWithId:0];
     
 }
 
@@ -197,24 +196,24 @@
 	self.imageDownloadsInProgress = [[NSMutableDictionary alloc] init];
     self.navigationItem.title = self.kindOfMenu.title;
     
-    ProductDataStruct *dataStruct;
-    for (int i = 0; i < self.arrayData.count; i++)
-    {
-        dataStruct = [self.arrayData objectAtIndex:i];
-        NSData *dataOfPicture = [[self.currentPictures objectForKey:dataStruct.idPicture] valueForKey:@"data"];
-        NSString *urlForImage = [NSString stringWithFormat:@"http://matrix-soft.org/clients/%@",[[self.currentPictures objectForKey:dataStruct.idPicture] valueForKey:@"link"]];
-        urlForImage = [urlForImage stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        NSURL *url = [NSURL URLWithString:urlForImage];
-        //        dataStruct.link = url.description;
-        
-        //saving results of secon request
-        [[self.arrayData objectAtIndex:i] setLink:url.description];
-        if(dataOfPicture)
-        {
-            [[self.arrayData objectAtIndex:i] setImage:[UIImage imageWithData:dataOfPicture]];
-        }
-    }
-    
+//    ProductDataStruct *dataStruct;
+//    for (int i = 0; i < self.arrayData.count; i++)
+//    {
+//        dataStruct = [self.arrayData objectAtIndex:i];
+//        NSData *dataOfPicture = [[self.currentPictures objectForKey:dataStruct.idPicture] valueForKey:@"data"];
+//        NSString *urlForImage = [NSString stringWithFormat:@"http://matrix-soft.org/clients/%@",[[self.currentPictures objectForKey:dataStruct.idPicture] valueForKey:@"link"]];
+//        urlForImage = [urlForImage stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+//        NSURL *url = [NSURL URLWithString:urlForImage];
+//        //        dataStruct.link = url.description;
+//        
+//        //saving results of secon request
+//        [[self.arrayData objectAtIndex:i] setLink:url.description];
+//        if(dataOfPicture)
+//        {
+//            [[self.arrayData objectAtIndex:i] setImage:[UIImage imageWithData:dataOfPicture]];
+//        }
+//    }
+//    
     
     GMGridView *gmGridView = [[GMGridView alloc] initWithFrame:self.viewForOutput.bounds];
     //gmGridView.frame.origin.x = -30;
@@ -330,7 +329,7 @@
         }
     }
     
-    [self.gmGridView reloadData];
+  [self.gmGridView reloadData];
     
 }
 
