@@ -116,7 +116,7 @@
 {
     if(!self.popupView)
     {
-        self.popupView = [[UIView alloc]initWithFrame:CGRectMake(107,200, 120, 100)];
+        self.popupView = [[UIView alloc]initWithFrame:CGRectMake(107,200 + 88, 120, 100)];
         self.popupView.backgroundColor = [UIColor blackColor];
         [self.popupView.layer setCornerRadius:5.0f];
         [self.popupView.layer setBorderColor:[UIColor lightGrayColor].CGColor];
