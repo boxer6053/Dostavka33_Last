@@ -116,7 +116,7 @@
 {
     if(!self.popupView)
     {
-        self.popupView = [[UIView alloc]initWithFrame:CGRectMake(107,200, 120, 100)];
+        self.popupView = [[UIView alloc]initWithFrame:CGRectMake(107,200 + 88, 120, 100)];
         self.popupView.backgroundColor = [UIColor blackColor];
         [self.popupView.layer setCornerRadius:5.0f];
         [self.popupView.layer setBorderColor:[UIColor lightGrayColor].CGColor];
@@ -476,7 +476,7 @@
     }
     
     if ([[UIScreen mainScreen] bounds].size.height == 568)
-    {
+    {        
         [self.pictureViewContainer setFrame:CGRectMake(self.pictureViewContainer.frame.origin.x, self.pictureViewContainer.frame.origin.y, self.pictureViewContainer.frame.size.width, 320)];
 
         [self.pictureButton setFrame:CGRectMake(0, 0, 320, 320)];
