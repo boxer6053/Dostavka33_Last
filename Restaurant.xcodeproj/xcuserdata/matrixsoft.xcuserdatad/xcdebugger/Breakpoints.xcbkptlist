@@ -423,12 +423,12 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "Restaurant/MenuIconViewController.m"
-         timestampString = "386004514.442718"
+         filePath = "Restaurant/ProductDetailViewController.m"
+         timestampString = "385999969.190103"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "186"
-         endingLineNumber = "186"
+         startingLineNumber = "419"
+         endingLineNumber = "419"
          landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
