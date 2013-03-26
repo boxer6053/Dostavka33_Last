@@ -141,14 +141,94 @@
 @synthesize titleCartIsEmpty = _titleCartIsEmpty;
 @synthesize historyArray = _historyArray;
 
+- (UIButton *)imageButton
+{
+    if ([[UIScreen mainScreen] bounds].size.height == 568)
+    {
+        [_imageButton setFrame:CGRectMake(0, 0, 320, 76 + 20)];
+    }
+    
+    return _imageButton;
+}
+
+- (UIImageView *)imageView
+{
+    if ([[UIScreen mainScreen] bounds].size.height == 568)
+    {
+        [_imageView setFrame:CGRectMake(0, 0, 320, 76 + 20)];
+    }
+    
+    return _imageView;
+}
+
 - (UIButton *)restorantsButton
 {
     if ([[UIScreen mainScreen] bounds].size.height == 568)
     {
-        [_restorantsButton setFrame:CGRectMake(85, 500, 150, 35)];
+        [_restorantsButton setFrame:CGRectMake(85, 488, 150, 35)];
     }
     
     return _restorantsButton;
+}
+
+- (UIButton *)settingsButton
+{
+    if ([[UIScreen mainScreen] bounds].size.height == 568)
+    {
+        [_settingsButton setFrame:CGRectMake(259, 488, 40, 35)];
+    }
+    
+    return _settingsButton;
+}
+
+- (UIButton *)drop
+{
+    if ([[UIScreen mainScreen] bounds].size.height == 568)
+    {
+        [_drop setFrame:CGRectMake(16, 488, 50, 35)];
+    }
+    
+    return _drop;
+}
+
+- (UIPickerView *)pickerView
+{
+    if ([[UIScreen mainScreen] bounds].size.height == 568)
+    {
+        [_pickerView setFrame:CGRectMake(0, 245, 320, 216 + 20)];
+    }
+    
+    return _pickerView;
+}
+
+- (UIButton *)menuButton
+{
+    if ([[UIScreen mainScreen] bounds].size.height == 568)
+    {
+        [_menuButton setFrame:CGRectMake(10, 147, 150, 40)];
+    }
+    
+    return _menuButton;
+}
+
+- (UIButton *)cartButton
+{
+    if ([[UIScreen mainScreen] bounds].size.height == 568)
+    {
+        [_cartButton setFrame:CGRectMake(160, 147, 150, 40)];
+    }
+    
+    return _cartButton;
+}
+
+- (UIButton *)historyButton
+{
+    if ([[UIScreen mainScreen] bounds].size.height == 568)
+    {
+        [_historyButton setFrame:CGRectMake(259, 488, 40, 35)];
+    }
+    
+    return _historyButton;
 }
 
 - (NSMutableArray *)historyArray
@@ -496,13 +576,19 @@
         _imageView.animationDuration = _promotionsArray.count * 6.0;
         _imageView.animationRepeatCount = 0;
     
+    NSLog(@"%f", _imageView.frame.size.height);
+    
         currentImage = 0;
         [_imageView startAnimating];
         
         [UIView beginAnimations:nil context:NULL];
         [UIView setAnimationDuration:2];
+    
         _viewForPromotion.frame = CGRectMake(0, 2, 320, 76);
+    
         [UIView commitAnimations];
+    
+    [self.imageButton setFrame:CGRectMake(0, 0, 320, 76 + 20)];
     
         [_viewForPromotion addSubview: self.imageButton];
         [self.imageButton addSubview: _imageView];

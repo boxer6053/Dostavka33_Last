@@ -155,20 +155,42 @@
 
 - (IBAction)showOrHidePictureViewContainer:(id)sender {
     if (!isPictureViewContanerShow) {
-        [UIView beginAnimations:nil context:NULL];
-        [UIView setAnimationDuration:0.3];
-        self.pictureViewContainer.frame = CGRectMake(0, -210, self.width, self.height);
-        [UIView commitAnimations];
         
+        if ([[UIScreen mainScreen] bounds].size.height == 480)
+        {
+            [UIView beginAnimations:nil context:NULL];
+            [UIView setAnimationDuration:0.3];
+            self.pictureViewContainer.frame = CGRectMake(0, -210, self.width, self.height);
+            [UIView commitAnimations];
+        }
+        else
+        {
+            [UIView beginAnimations:nil context:NULL];
+            [UIView setAnimationDuration:0.3];
+            self.pictureViewContainer.frame = CGRectMake(0, -290, self.width, 320);
+            [UIView commitAnimations];
+        }
+                
         [self.scrollView setHidden:NO];
         
         isPictureViewContanerShow = YES;
     } else {
-        [UIView beginAnimations:nil context:NULL];
-        [UIView setAnimationDuration:0.3];
-        self.pictureViewContainer.frame = CGRectMake(0, 0, self.width, self.height);
-        [UIView commitAnimations];
-
+        
+        if ([[UIScreen mainScreen] bounds].size.height == 480)
+        {
+            [UIView beginAnimations:nil context:NULL];
+            [UIView setAnimationDuration:0.3];
+            self.pictureViewContainer.frame = CGRectMake(0, 0, self.width, self.height);
+            [UIView commitAnimations];
+        }
+        else
+        {
+            [UIView beginAnimations:nil context:NULL];
+            [UIView setAnimationDuration:0.3];
+            self.pictureViewContainer.frame = CGRectMake(0, 0, self.width, 320);
+            [UIView commitAnimations];
+        }
+        
         isPictureViewContanerShow = NO;
     }
 }
@@ -179,25 +201,51 @@
     //    translation.y
     sender.view.center = CGPointMake(sender.view.center.x, sender.view.center.y + translation.y);
     
-    if (sender.view.center.y >= 120) {
-        sender.view.center = CGPointMake(sender.view.center.x, 120);
-        [sender setTranslation:CGPointMake(0, 0) inView:self.view];
-        
-        isPictureViewContanerShow = NO;
-    } else if (sender.view.center.y <= -60) {
-        sender.view.center = CGPointMake(sender.view.center.x, -60);
-        [sender setTranslation:CGPointMake(0, 0) inView:self.view];
-        
-        //        [self.scrollView setHidden:NO];
-        
-        isPictureViewContanerShow = YES;
-        
-    } else {
-        [sender setTranslation:CGPointMake(0, 0) inView:self.view];
-        
-        isPictureViewContanerShow = NO;
-        
+    if ([[UIScreen mainScreen] bounds].size.height == 480)
+    {
+        if (sender.view.center.y >= 120) {
+            sender.view.center = CGPointMake(sender.view.center.x, 120);
+            [sender setTranslation:CGPointMake(0, 0) inView:self.view];
+            
+            isPictureViewContanerShow = NO;
+        } else if (sender.view.center.y <= -90) {
+            sender.view.center = CGPointMake(sender.view.center.x, -90);
+            [sender setTranslation:CGPointMake(0, 0) inView:self.view];
+            
+            //        [self.scrollView setHidden:NO];
+            
+            isPictureViewContanerShow = YES;
+            
+        } else {
+            [sender setTranslation:CGPointMake(0, 0) inView:self.view];
+            
+            isPictureViewContanerShow = NO;
+            
+        }
     }
+    else
+    {
+        if (sender.view.center.y >= 160) {
+            sender.view.center = CGPointMake(sender.view.center.x, 160);
+            [sender setTranslation:CGPointMake(0, 0) inView:self.view];
+            
+            isPictureViewContanerShow = NO;
+        } else if (sender.view.center.y <= -130) {
+            sender.view.center = CGPointMake(sender.view.center.x, -130);
+            [sender setTranslation:CGPointMake(0, 0) inView:self.view];
+            
+            //        [self.scrollView setHidden:NO];
+            
+            isPictureViewContanerShow = YES;
+            
+        } else {
+            [sender setTranslation:CGPointMake(0, 0) inView:self.view];
+            
+            isPictureViewContanerShow = NO;
+            
+        }
+    }
+    
 }
 
 - (GettingCoreContent *)content
@@ -425,6 +473,29 @@
     if(self.product.isFavorites.boolValue)
     {
         [self.navigationItem.rightBarButtonItem setEnabled:NO];
+    }
+    
+    if ([[UIScreen mainScreen] bounds].size.height == 568)
+    {
+        [self.pictureViewContainer setFrame:CGRectMake(self.pictureViewContainer.frame.origin.x, self.pictureViewContainer.frame.origin.y, self.pictureViewContainer.frame.size.width, 320)];
+
+        [self.pictureButton setFrame:CGRectMake(0, 0, 320, 320)];
+        
+        [self.imageView setFrame:self.pictureButton.frame];
+        
+        [self.tableViewIngredients setFrame:CGRectMake(self.tableViewIngredients.frame.origin.x, self.tableViewIngredients.frame.origin.y, self.tableViewIngredients.frame.size.width, 334)];
+        
+        [self.nameLabal setFrame:CGRectMake(self.nameLabal.frame.origin.x, self.nameLabal.frame.origin.y + 88, self.nameLabal.frame.size.width, self.nameLabal.frame.size.height)];
+        
+        [self.priceView setFrame:CGRectMake(self.priceView.frame.origin.x, self.priceView.frame.origin.y + 88, self.priceView.frame.size.width, self.priceView.frame.size.height)];
+        
+        [self.sizeButton setFrame:CGRectMake(self.sizeButton.frame.origin.x, self.sizeButton.frame.origin.y + 88, self.sizeButton.frame.size.width, self.sizeButton.frame.size.height)];
+        
+        [self.cartButton setFrame:CGRectMake(self.cartButton.frame.origin.x, self.cartButton.frame.origin.y + 88, self.cartButton.frame.size.width, self.cartButton.frame.size.height)];
+        
+        [self.shareButton setFrame:CGRectMake(self.shareButton.frame.origin.x, self.shareButton.frame.origin.y + 88, self.shareButton.frame.size.width, self.shareButton.frame.size.height)];
+        
+        [self.countPickerView setFrame:CGRectMake(self.countPickerView.frame.origin.x, self.countPickerView.frame.origin.y + 88, self.countPickerView.frame.size.width, self.countPickerView.frame.size.height)];
     }
 }
 

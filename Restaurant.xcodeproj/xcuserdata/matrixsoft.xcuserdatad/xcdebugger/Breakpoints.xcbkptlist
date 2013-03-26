@@ -21,11 +21,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Restaurant/MainMenuViewController.m"
-         timestampString = "385655895.78852"
+         timestampString = "385664117.884523"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "658"
-         endingLineNumber = "658"
+         startingLineNumber = "744"
+         endingLineNumber = "744"
          landmarkName = "@implementation MainMenuViewController"
          landmarkType = "3">
       </FileBreakpoint>
@@ -34,11 +34,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Restaurant/MainMenuViewController.m"
-         timestampString = "385655895.78852"
+         timestampString = "385664117.884523"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "318"
-         endingLineNumber = "318"
+         startingLineNumber = "398"
+         endingLineNumber = "398"
          landmarkName = "@implementation MainMenuViewController"
          landmarkType = "3">
       </FileBreakpoint>
@@ -47,11 +47,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Restaurant/MainMenuViewController.m"
-         timestampString = "385655895.78852"
+         timestampString = "385664117.884523"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "471"
-         endingLineNumber = "471"
+         startingLineNumber = "551"
+         endingLineNumber = "551"
          landmarkName = "@implementation MainMenuViewController"
          landmarkType = "3">
       </FileBreakpoint>
@@ -60,11 +60,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Restaurant/MainMenuViewController.m"
-         timestampString = "385655895.78852"
+         timestampString = "385664117.884523"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "552"
-         endingLineNumber = "552"
+         startingLineNumber = "638"
+         endingLineNumber = "638"
          landmarkName = "-changingAnimation"
          landmarkType = "5">
       </FileBreakpoint>
@@ -378,6 +378,45 @@
          startingLineNumber = "291"
          endingLineNumber = "291"
          landmarkName = "-viewDidAppear:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Restaurant/ProductDetailViewController.m"
+         timestampString = "385980330.741178"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "156"
+         endingLineNumber = "156"
+         landmarkName = "-showOrHidePictureViewContainer:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Restaurant/ProductDetailViewController.m"
+         timestampString = "385980819.442716"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "198"
+         endingLineNumber = "198"
+         landmarkName = "-dragPictureViewContainer:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Restaurant/ProductDetailViewController.m"
+         timestampString = "385981442.711487"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "230"
+         endingLineNumber = "230"
+         landmarkName = "-dragPictureViewContainer:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
