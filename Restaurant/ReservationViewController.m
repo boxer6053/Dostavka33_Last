@@ -116,10 +116,16 @@
 //////////////////////////////////////////////////////////////////////////
 - (void)viewDidLoad
 {
+    
+    if ([[UIScreen mainScreen] bounds].size.height == 568)
+    {
+        
+        [self.reservateButton setFrame:CGRectMake(90, 440, 140, 44)];
+    }
     [super viewDidLoad];
-  // RestaurantAppDelegate *appDelegate = [[RestaurantAppDelegate alloc] init];
-
-//    NSString*  deviceName= [[UIDevice currentDevice] uniqueIdentifier];
+    // RestaurantAppDelegate *appDelegate = [[RestaurantAppDelegate alloc] init];
+    
+    //    NSString*  deviceName= [[UIDevice currentDevice] uniqueIdentifier];
     NSLog(@"djjsdfjsdjfjsdf %@", [(RestaurantAppDelegate *)[[UIApplication sharedApplication] delegate] testToken1] );
     CAGradientLayer *mainGradient = [CAGradientLayer layer];
     mainGradient.frame = self.scrollView.bounds;
@@ -368,7 +374,7 @@
         
         
         
-
+        
     } else {
         UIAlertView *connectFailMessage = [[UIAlertView alloc] initWithTitle:@"Fil all rows with '*'."
                                                                      message:nil //@"Not success"
@@ -562,12 +568,12 @@
 
 -(BOOL)checkForLiteracy
 {
-           if (![self.name.text isEqual:@""] && ![self.numberOfPeople.text isEqual:@""] && ![self.phone.text isEqual:@""] && ![self.dateOfReservation.text isEqual:@""])
-        {
-            return YES;
-        }
-        else
-            return NO;
+    if (![self.name.text isEqual:@""] && ![self.numberOfPeople.text isEqual:@""] && ![self.phone.text isEqual:@""] && ![self.dateOfReservation.text isEqual:@""])
+    {
+        return YES;
+    }
+    else
+        return NO;
 }
 
 - (BOOL)checkForNumberCount

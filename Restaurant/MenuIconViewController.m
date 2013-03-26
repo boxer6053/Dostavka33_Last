@@ -84,11 +84,11 @@
         NSLog(@"first query begin");
         NSArray *data = [self.db fetchAllProductsFromMenu:self.kindOfMenu.menuId];
         NSLog(@"first query end. Second query begin");
-//        NSDictionary *pictures = [self.db fetchImageURLAndDatabyMenuID:self.kindOfMenu.menuId];
+        //        NSDictionary *pictures = [self.db fetchImageURLAndDatabyMenuID:self.kindOfMenu.menuId];
         NSLog(@"Second query end. For begin");
         for(int i=0;i<data.count;i++)
         {
-            if(i%2==0) 
+            if(i%2==0)
             {
                 dataStruct = [[ProductDataStruct alloc] init];
                 dataStruct.productId = [[data objectAtIndex:i] valueForKey:@"underbarid"];
@@ -103,15 +103,15 @@
                 [dataStruct setCalories:[[data objectAtIndex:i] valueForKey:@"calories"]];
                 [dataStruct setHit:[[data objectAtIndex:i] valueForKey:@"hit"]];
                 [dataStruct setIdMenu:[[data objectAtIndex:i] valueForKey:@"idMenu"]];
-//                NSData *dataOfPicture = [[pictures objectForKey:dataStruct.idPicture] valueForKey:@"data"];
-//                NSString *urlForImage = [NSString stringWithFormat:@"http://matrix-soft.org/clients/%@",[[pictures objectForKey:dataStruct.idPicture] valueForKey:@"link"]];
-//                urlForImage = [urlForImage stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-//                NSURL *url = [[NSURL alloc] initWithString:urlForImage];
-//                dataStruct.link = url.description;
-//                if(dataOfPicture)
-//                {
-//                    dataStruct.image  = [UIImage imageWithData:dataOfPicture]; 
-//                }
+                //                NSData *dataOfPicture = [[pictures objectForKey:dataStruct.idPicture] valueForKey:@"data"];
+                //                NSString *urlForImage = [NSString stringWithFormat:@"http://matrix-soft.org/clients/%@",[[pictures objectForKey:dataStruct.idPicture] valueForKey:@"link"]];
+                //                urlForImage = [urlForImage stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+                //                NSURL *url = [[NSURL alloc] initWithString:urlForImage];
+                //                dataStruct.link = url.description;
+                //                if(dataOfPicture)
+                //                {
+                //                    dataStruct.image  = [UIImage imageWithData:dataOfPicture];
+                //                }
             }
             else
             {
@@ -140,29 +140,29 @@
     [super viewDidAppear:YES];
     
     //fetching pictures
-   // NSDictionary *pictures = [self.db fetchImageURLAndDatabyMenuID:self.kindOfMenu.menuId];
-//    ProductDataStruct *dataStruct;
-//    for (int i = 0; i < self.arrayData.count; i++)
-//    {
-//        dataStruct = [self.arrayData objectAtIndex:i];
-////        NSData *dataOfPicture = [[self.currentPictures objectForKey:dataStruct.idPicture] valueForKey:@"data"];
-//        
-//        NSData *dataOfPicture = [[NSData alloc] initWithContentsOfFile:[[self.currentPictures objectForKey:dataStruct.idPicture] valueForKey:@"filePath"]];
-//        
-//        NSString *urlForImage = [NSString stringWithFormat:@"http://matrix-soft.org/clients/%@",[[self.currentPictures objectForKey:dataStruct.idPicture] valueForKey:@"link"]];
-//        urlForImage = [urlForImage stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-//        NSURL *url = [NSURL URLWithString:urlForImage];
-////        dataStruct.link = url.description;
-//        
-//        //saving results of secon request
-//        [[self.arrayData objectAtIndex:i] setLink:url.description];
-//        if(dataOfPicture)
-//        {
-//            [[self.arrayData objectAtIndex:i] setImage:[UIImage imageWithData:dataOfPicture]];
-//        }
-//    }
-//    
-//    [self.gmGridView reloadData];
+    // NSDictionary *pictures = [self.db fetchImageURLAndDatabyMenuID:self.kindOfMenu.menuId];
+    //    ProductDataStruct *dataStruct;
+    //    for (int i = 0; i < self.arrayData.count; i++)
+    //    {
+    //        dataStruct = [self.arrayData objectAtIndex:i];
+    ////        NSData *dataOfPicture = [[self.currentPictures objectForKey:dataStruct.idPicture] valueForKey:@"data"];
+    //
+    //        NSData *dataOfPicture = [[NSData alloc] initWithContentsOfFile:[[self.currentPictures objectForKey:dataStruct.idPicture] valueForKey:@"filePath"]];
+    //
+    //        NSString *urlForImage = [NSString stringWithFormat:@"http://matrix-soft.org/clients/%@",[[self.currentPictures objectForKey:dataStruct.idPicture] valueForKey:@"link"]];
+    //        urlForImage = [urlForImage stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    //        NSURL *url = [NSURL URLWithString:urlForImage];
+    ////        dataStruct.link = url.description;
+    //
+    //        //saving results of secon request
+    //        [[self.arrayData objectAtIndex:i] setLink:url.description];
+    //        if(dataOfPicture)
+    //        {
+    //            [[self.arrayData objectAtIndex:i] setImage:[UIImage imageWithData:dataOfPicture]];
+    //        }
+    //    }
+    //
+    //    [self.gmGridView reloadData];
     
     //[self activePageWithId:0];
     
@@ -185,6 +185,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    if ([[UIScreen mainScreen] bounds].size.height == 568)
+    {
+        
+        self.viewForOutput.frame = CGRectMake(self.viewForOutput.frame.origin.x , self.viewForOutput.frame.origin.y, 320, 440);
+        [self.pageControl setFrame:CGRectMake(125, self.viewForOutput.frame.origin.y + 450, self.pageControl.frame.size.width, self.pageControl.frame.size.height)];
+    }
+    
     NSLog(@"did it loaded? %@", self.titleAddToFavotites);
 	self.imageDownloadsInProgress = [[NSMutableDictionary alloc] init];
     self.navigationItem.title = self.kindOfMenu.title;
@@ -206,7 +214,7 @@
             [[self.arrayData objectAtIndex:i] setImage:[UIImage imageWithData:dataOfPicture]];
         }
     }
-
+    
     
     GMGridView *gmGridView = [[GMGridView alloc] initWithFrame:self.viewForOutput.bounds];
     //gmGridView.frame.origin.x = -30;
@@ -231,8 +239,8 @@
     self.gmGridView.dataSource = self;
     self.gmGridView.delegate = self;
     
-//    [self.gmGridView layoutSubviewsWithAnimation:GMGridViewItemAnimationFade];
-//    self.gmGridView.editing = YES;
+    //    [self.gmGridView layoutSubviewsWithAnimation:GMGridViewItemAnimationFade];
+    //    self.gmGridView.editing = YES;
     self.gmGridView.enableEditOnLongPress = YES;
     
     self.stopEditButton.hidden = YES;
@@ -241,14 +249,30 @@
     self.gmGridView.layoutStrategy = [GMGridViewLayoutStrategyFactory strategyFromType:GMGridViewLayoutHorizontalPagedLTR];
     self.gmGridView.showsHorizontalScrollIndicator = NO;
     
-//    self.gmGridView.style = GMGridViewStylePush;
-    
-    self.pageControl.currentPage = 0;
-    if (self.arrayData.count%9 != 0)
-        self.pageControl.numberOfPages = (int) self.arrayData.count/9 + 1;
+    //    self.gmGridView.style = GMGridViewStylePush;
+    if ([[UIScreen mainScreen] bounds].size.height == 568)
+    {
+        if(self.arrayData.count <12){
+            [self.pageControl setHidden:YES];
+        }
+        else{
+            self.pageControl.currentPage = 0;
+            if (self.arrayData.count%12 != 0)
+                self.pageControl.numberOfPages = (int) self.arrayData.count/12 + 1;
+            else
+                self.pageControl.numberOfPages = (int) self.arrayData.count/12;
+        }
+        
+    }
     else
-        self.pageControl.numberOfPages = (int) self.arrayData.count/9;
-
+    {
+        self.pageControl.currentPage = 0;
+        if (self.arrayData.count%9 != 0)
+            self.pageControl.numberOfPages = (int) self.arrayData.count/9 + 1;
+        else
+            self.pageControl.numberOfPages = (int) self.arrayData.count/9;
+    }
+    
     CAGradientLayer *gradient = [CAGradientLayer layer];
     gradient.frame = self.viewForOutput.bounds;
     gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor blackColor] CGColor], (id)[[UIColor darkGrayColor] CGColor],(id)[[UIColor blackColor] CGColor], nil];
@@ -307,20 +331,20 @@
     }
     
     [self.gmGridView reloadData];
-
+    
 }
 
 - (void) viewWillDisappear:(BOOL)animated
 {
-//    if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound) 
-//    {
-        // back button was pressed.  We know this is true because self is no longer
-        // in the navigation stack.
+    //    if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound)
+    //    {
+    // back button was pressed.  We know this is true because self is no longer
+    // in the navigation stack.
     NSArray *allDownloads = [self.imageDownloadsInProgress allValues];
     [allDownloads makeObjectsPerformSelector:@selector(cancelDownload)];
     self.didLoad = NO;
     
-//    }
+    //    }
     [super viewWillDisappear:animated];
 }
 
@@ -350,6 +374,7 @@
 //////////////////////////////////////////////////////////////
 
 - (void)scrollViewDidScroll:(GMGridView *)sender {
+    
 	if (!pageControlBeingUsed) {
 		// Switch the indicator when more than 50% of the previous/next page is visible
 		CGFloat pageWidth = self.gmGridView.frame.size.width;
@@ -376,49 +401,49 @@
 - (void)startIconDownload:(ProductDataStruct *)appRecord forIndex:(NSNumber *)index
 {
     IconDownloader *iconDownloader = [self.imageDownloadsInProgress objectForKey:index];
-    if (iconDownloader == nil) 
+    if (iconDownloader == nil)
     {
         iconDownloader = [[IconDownloader alloc] init];
         iconDownloader.appRecord = appRecord;
         iconDownloader.indexForElement = index;
         iconDownloader.delegate = self;
         [self.imageDownloadsInProgress setObject:iconDownloader forKey:index];
-        [iconDownloader startDownload]; 
+        [iconDownloader startDownload];
     }
 }
 
 // this method is used in case the user scrolled into a set of cells that don't have their app icons yet
 - (void)loadImagesForOnscreenRows
 {
-//    if ([self.arrayData count] > 0 && self.pageControl.currentPage > 1)
-//    {
-//        NSMutableArray *visibleIndexes = [[NSMutableArray alloc] init];
-//        for (int i = 0; i < 9; i++)
-//        {
-//            [visibleIndexes addObject:[NSNumber numberWithInteger:(self.pageControl.currentPage*9) + i]];
-//        }
-//        for (NSNumber *index in visibleIndexes)
-//        {
-//            ProductDataStruct *appRecord = [self.arrayData objectAtIndex:index.intValue];
-//            
-//            if (!appRecord.image) // avoid the app icon download if the app already has an icon
-//            {
-//                [self startIconDownload:appRecord forIndex:index];
-//            }
-//        }
-//    }
+    //    if ([self.arrayData count] > 0 && self.pageControl.currentPage > 1)
+    //    {
+    //        NSMutableArray *visibleIndexes = [[NSMutableArray alloc] init];
+    //        for (int i = 0; i < 9; i++)
+    //        {
+    //            [visibleIndexes addObject:[NSNumber numberWithInteger:(self.pageControl.currentPage*9) + i]];
+    //        }
+    //        for (NSNumber *index in visibleIndexes)
+    //        {
+    //            ProductDataStruct *appRecord = [self.arrayData objectAtIndex:index.intValue];
+    //
+    //            if (!appRecord.image) // avoid the app icon download if the app already has an icon
+    //            {
+    //                [self startIconDownload:appRecord forIndex:index];
+    //            }
+    //        }
+    //    }
 }
 
 // called by our ImageDownloader when an icon is ready to be displayed
 - (void)appImageDidLoadGrid:(NSNumber *)index
 {
     IconDownloader *iconDownloader = [self.imageDownloadsInProgress objectForKey:index];
-//    if (iconDownloader != nil)
-//    {
-//        ProductCell *cell = (ProductCell *)[self.tableView cellForRowAtIndexPath:iconDownloader.indexPathInTableView];
-//        
-//        // Display the newly loaded image
-//        cell.productImage.image = iconDownloader.appRecord.image;
+    //    if (iconDownloader != nil)
+    //    {
+    //        ProductCell *cell = (ProductCell *)[self.tableView cellForRowAtIndexPath:iconDownloader.indexPathInTableView];
+    //
+    //        // Display the newly loaded image
+    //        cell.productImage.image = iconDownloader.appRecord.image;
     if (iconDownloader != nil)
     {
         [self.db SavePictureToCoreData:iconDownloader.appRecord.idPicture toData:UIImagePNGRepresentation(iconDownloader.appRecord.image)];
@@ -466,7 +491,14 @@
 
 - (CGSize)GMGridView:(GMGridView *)gridView sizeForItemsInInterfaceOrientation:(UIInterfaceOrientation)orientation
 {
-    return CGSizeMake(90, 110);
+    if ([[UIScreen mainScreen] bounds].size.height == 568)
+    {
+        return CGSizeMake(90, 90);
+    }
+    else{
+        return CGSizeMake(90, 110);
+        
+    }
 }
 
 - (GMGridViewCell *)GMGridView:(GMGridView *)gridView cellForItemAtIndex:(NSInteger)index
@@ -478,7 +510,7 @@
     GMGridViewCell *cell = [gridView dequeueReusableCell];
     ProductDataStruct *dataStruct = [self.arrayData objectAtIndex:index];
     
-    if (!cell) 
+    if (!cell)
     {
         cell = [[GMGridViewCell alloc] init];
         cell.deleteButtonOffset = CGPointMake(-15, -15);
@@ -498,7 +530,7 @@
     
     [[cell.contentView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
     
-//    налаштування виду елемента
+    //    налаштування виду елемента
     CGRect imageFrame;
     imageFrame.size = CGSizeMake(90,80);
     imageFrame.origin.x = 0;
@@ -579,19 +611,19 @@
     priceLabel.font = [UIFont systemFontOfSize:12];
     [cell.contentView addSubview:priceLabel];
     
-//    CGRect descriptionFrame;
-//    descriptionFrame.origin.x = 0;
-//    descriptionFrame.origin.y = 90;
-//    descriptionFrame.size = CGSizeMake(90,15);
-//    UILabel *descriptionLabel = [[UILabel alloc] initWithFrame:descriptionFrame];
-//    descriptionLabel.backgroundColor = [UIColor clearColor];
-//    descriptionLabel.text = dataStruct.descriptionText;
-//    descriptionLabel.textColor = [UIColor lightGrayColor];
-//    descriptionLabel.textAlignment = UITextAlignmentRight;
-//    descriptionLabel.numberOfLines = 1;
-//    descriptionLabel.minimumFontSize = 8;
-//    descriptionLabel.adjustsFontSizeToFitWidth = YES;
-//    [cell.contentView addSubview:descriptionLabel];
+    //    CGRect descriptionFrame;
+    //    descriptionFrame.origin.x = 0;
+    //    descriptionFrame.origin.y = 90;
+    //    descriptionFrame.size = CGSizeMake(90,15);
+    //    UILabel *descriptionLabel = [[UILabel alloc] initWithFrame:descriptionFrame];
+    //    descriptionLabel.backgroundColor = [UIColor clearColor];
+    //    descriptionLabel.text = dataStruct.descriptionText;
+    //    descriptionLabel.textColor = [UIColor lightGrayColor];
+    //    descriptionLabel.textAlignment = UITextAlignmentRight;
+    //    descriptionLabel.numberOfLines = 1;
+    //    descriptionLabel.minimumFontSize = 8;
+    //    descriptionLabel.adjustsFontSizeToFitWidth = YES;
+    //    [cell.contentView addSubview:descriptionLabel];
     
     return cell;
 }
@@ -642,20 +674,20 @@
     if (![[[self.arrayData objectAtIndex:index] isFavorites] boolValue])
     {
         alertView= [[UIAlertView alloc] initWithTitle:self.titleAddToFavotites
-                                               message:nil
-                                              delegate:self
-                                     cancelButtonTitle:self.titleCancel
-                                     otherButtonTitles:self.titleYES, nil];
+                                              message:nil
+                                             delegate:self
+                                    cancelButtonTitle:self.titleCancel
+                                    otherButtonTitles:self.titleYES, nil];
         NSLog(@"pressed button 1");
     }
     else
     {
-         alertView= [[UIAlertView alloc] initWithTitle:self.titleRemoveToFavotites
-                                               message:nil
-                                              delegate:self
-                                     cancelButtonTitle:self.titleCancel
-                                     otherButtonTitles:self.titleYES, nil];
-             NSLog(@"pressed button 2"); 
+        alertView= [[UIAlertView alloc] initWithTitle:self.titleRemoveToFavotites
+                                              message:nil
+                                             delegate:self
+                                    cancelButtonTitle:self.titleCancel
+                                    otherButtonTitles:self.titleYES, nil];
+        NSLog(@"pressed button 2");
     }
     
     [alertView show];
@@ -664,7 +696,7 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (buttonIndex == 1) 
+    if (buttonIndex == 1)
     {
         // add to favorites here
         id currentOne = [self.arrayData objectAtIndex:self.selectedIndex.integerValue];
@@ -712,23 +744,23 @@
 
 - (void)GMGridView:(GMGridView *)gridView didStartMovingCell:(GMGridViewCell *)cell
 {
-    [UIView animateWithDuration:0.3 
-                          delay:0 
-                        options:UIViewAnimationOptionAllowUserInteraction 
+    [UIView animateWithDuration:0.3
+                          delay:0
+                        options:UIViewAnimationOptionAllowUserInteraction
                      animations:^{
                          cell.contentView.backgroundColor = [UIColor orangeColor];
                          cell.contentView.layer.shadowOpacity = 0.7;
-                     } 
+                     }
                      completion:nil
      ];
 }
 
 - (void)GMGridView:(GMGridView *)gridView didEndMovingCell:(GMGridViewCell *)cell
 {
-    [UIView animateWithDuration:0.3 
-                          delay:0 
-                        options:UIViewAnimationOptionAllowUserInteraction 
-                     animations:^{  
+    [UIView animateWithDuration:0.3
+                          delay:0
+                        options:UIViewAnimationOptionAllowUserInteraction
+                     animations:^{
                          cell.contentView.backgroundColor = [UIColor redColor];
                          cell.contentView.layer.shadowOpacity = 0;
                      }
@@ -760,60 +792,60 @@
 
 - (CGSize)GMGridView:(GMGridView *)gridView sizeInFullSizeForCell:(GMGridViewCell *)cell atIndex:(NSInteger)index inInterfaceOrientation:(UIInterfaceOrientation)orientation
 {
-//    if (INTERFACE_IS_PHONE) 
-//    {
-//        if (UIInterfaceOrientationIsLandscape(orientation)) 
-//        {
-//            return CGSizeMake(320, 210);
-//        }
-//        else
-//        {
-//            return CGSizeMake(300, 310);
-//        }
-//    }
-//    else
-//    {
-//        if (UIInterfaceOrientationIsLandscape(orientation)) 
-//        {
-//            return CGSizeMake(700, 530);
-//        }
-//        else
-//        {
-//            return CGSizeMake(600, 500);
-//        }
-//    }
+    //    if (INTERFACE_IS_PHONE)
+    //    {
+    //        if (UIInterfaceOrientationIsLandscape(orientation))
+    //        {
+    //            return CGSizeMake(320, 210);
+    //        }
+    //        else
+    //        {
+    //            return CGSizeMake(300, 310);
+    //        }
+    //    }
+    //    else
+    //    {
+    //        if (UIInterfaceOrientationIsLandscape(orientation))
+    //        {
+    //            return CGSizeMake(700, 530);
+    //        }
+    //        else
+    //        {
+    //            return CGSizeMake(600, 500);
+    //        }
+    //    }
     
     return CGSizeMake(300, 310);
 }
 
 - (UIView *)GMGridView:(GMGridView *)gridView fullSizeViewForCell:(GMGridViewCell *)cell atIndex:(NSInteger)index
 {
-//    UIView *fullView = [[UIView alloc] init];
-//    fullView.backgroundColor = [UIColor yellowColor];
-//    fullView.layer.masksToBounds = NO;
-//    fullView.layer.cornerRadius = 8;
-//    
-//    CGSize size = [self GMGridView:gridView sizeInFullSizeForCell:cell atIndex:index inInterfaceOrientation:[[UIApplication sharedApplication] statusBarOrientation]];
-//    fullView.bounds = CGRectMake(0, 0, size.width, size.height);
-//    
-//    UILabel *label = [[UILabel alloc] initWithFrame:fullView.bounds];
-//    label.text = [NSString stringWithFormat:@"Fullscreen View for cell at index %d", index];
-//    label.textAlignment = UITextAlignmentCenter;
-//    label.backgroundColor = [UIColor clearColor];
-//    label.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-//    
-////    if (INTERFACE_IS_PHONE) 
-////    {
-////        label.font = [UIFont boldSystemFontOfSize:15];
-////    }
-////    else
-////    {
-////        label.font = [UIFont boldSystemFontOfSize:20];
-////    }
-//    
-//    label.font = [UIFont boldSystemFontOfSize:15];
-//
-//    [fullView addSubview:label];
+    //    UIView *fullView = [[UIView alloc] init];
+    //    fullView.backgroundColor = [UIColor yellowColor];
+    //    fullView.layer.masksToBounds = NO;
+    //    fullView.layer.cornerRadius = 8;
+    //
+    //    CGSize size = [self GMGridView:gridView sizeInFullSizeForCell:cell atIndex:index inInterfaceOrientation:[[UIApplication sharedApplication] statusBarOrientation]];
+    //    fullView.bounds = CGRectMake(0, 0, size.width, size.height);
+    //
+    //    UILabel *label = [[UILabel alloc] initWithFrame:fullView.bounds];
+    //    label.text = [NSString stringWithFormat:@"Fullscreen View for cell at index %d", index];
+    //    label.textAlignment = UITextAlignmentCenter;
+    //    label.backgroundColor = [UIColor clearColor];
+    //    label.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    //
+    ////    if (INTERFACE_IS_PHONE)
+    ////    {
+    ////        label.font = [UIFont boldSystemFontOfSize:15];
+    ////    }
+    ////    else
+    ////    {
+    ////        label.font = [UIFont boldSystemFontOfSize:20];
+    ////    }
+    //
+    //    label.font = [UIFont boldSystemFontOfSize:15];
+    //
+    //    [fullView addSubview:label];
     UIView *fullView = [[UIView alloc] init];
     fullView.layer.masksToBounds = NO;
     fullView.layer.cornerRadius = 8;
@@ -834,9 +866,9 @@
 
 - (void)GMGridView:(GMGridView *)gridView didStartTransformingCell:(GMGridViewCell *)cell
 {
-    [UIView animateWithDuration:0.5 
-                          delay:0 
-                        options:UIViewAnimationOptionAllowUserInteraction 
+    [UIView animateWithDuration:0.5
+                          delay:0
+                        options:UIViewAnimationOptionAllowUserInteraction
                      animations:nil
                      completion:nil];
     self.gmGridView.actionDelegate = nil;
@@ -844,9 +876,9 @@
 
 - (void)GMGridView:(GMGridView *)gridView didEndTransformingCell:(GMGridViewCell *)cell
 {
-    [UIView animateWithDuration:0.5 
-                          delay:0 
-                        options:UIViewAnimationOptionAllowUserInteraction 
+    [UIView animateWithDuration:0.5
+                          delay:0
+                        options:UIViewAnimationOptionAllowUserInteraction
                      animations:nil
                      completion:nil];
     
@@ -899,7 +931,7 @@
 //        [self.db SavePictureToCoreData:[parameters objectForKey:@"id"] toData:UIImagePNGRepresentation(image)];
 //        is = YES;
 //    }
-//    
+//
 //    if (is)
 //    {
 //        [super reloadInputViews];
@@ -907,7 +939,7 @@
 //}
 
 
-- (void)toCartMenu:(id)sender 
+- (void)toCartMenu:(id)sender
 {
     //обовязково анімація NO !!!
     [self.navigationController popViewControllerAnimated:NO];
