@@ -490,14 +490,14 @@
 
 - (CGSize)GMGridView:(GMGridView *)gridView sizeForItemsInInterfaceOrientation:(UIInterfaceOrientation)orientation
 {
-    if ([[UIScreen mainScreen] bounds].size.height == 568)
-    {
-        return CGSizeMake(90, 90);
-    }
-    else{
+//    if ([[UIScreen mainScreen] bounds].size.height == 568)
+//    {
+//        return CGSizeMake(90, 110);
+//    }
+//    else{
         return CGSizeMake(90, 110);
         
-    }
+    //}
 }
 
 - (GMGridViewCell *)GMGridView:(GMGridView *)gridView cellForItemAtIndex:(NSInteger)index
