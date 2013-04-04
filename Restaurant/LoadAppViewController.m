@@ -171,16 +171,16 @@
         if(![[NSUserDefaults standardUserDefaults] objectForKey:@"defaultLanguageId"])
         {
             
-            NSString *dbLink = @"http://matrix-soft.org/addon_domains_folder/test8/root";
+            NSString *dbLink = @"http://matrix-soft.org/clients";
             [[NSUserDefaults standardUserDefaults] setValue:dbLink forKey:@"dbLink"];
             
-            NSString *DBid = @"DBid=13";
+            NSString *DBid = @"DBid=3";
             [[NSUserDefaults standardUserDefaults] setValue:DBid forKey:@"DBid"];
             
             //tag=init http request
             NSLog(@"<<<<<<<<<Generating init request>>>>>>>>>>");
             self.isFirstTime = YES;
-            NSMutableString *order = [NSMutableString stringWithFormat:@"%@%@%@%@", [[NSUserDefaults standardUserDefaults] valueForKey:@"dbLink"], @"/Customer_Scripts/v2/update.php?", [[NSUserDefaults standardUserDefaults] valueForKey:@"DBid"], @"&tag=init&idPhone=1"];
+            NSMutableString *order = [NSMutableString stringWithFormat:@"%@%@%@%@", [[NSUserDefaults standardUserDefaults] valueForKey:@"dbLink"], @"/Customer_Scripts/update.php?", [[NSUserDefaults standardUserDefaults] valueForKey:@"DBid"], @"&tag=init&idPhone=1"];
             
             [order appendFormat:@"&UUID=%@",deviceToken];
             
@@ -461,7 +461,7 @@
         //створюємо http зарпос
         if (checkConnection.hasConnectivity)
         {
-            NSMutableString *order = [NSMutableString stringWithFormat:@"%@%@%@%@", [[NSUserDefaults standardUserDefaults] valueForKey:@"dbLink"], @"/Customer_Scripts/v2/update.php?", [[NSUserDefaults standardUserDefaults] valueForKey:@"DBid"], @"&tag=rmp"];
+            NSMutableString *order = [NSMutableString stringWithFormat:@"%@%@%@%@", [[NSUserDefaults standardUserDefaults] valueForKey:@"dbLink"], @"/Customer_Scripts/update.php?", [[NSUserDefaults standardUserDefaults] valueForKey:@"DBid"], @"&tag=rmp"];
             [order appendFormat:@"&idLang=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultLanguageId"]];
             [order appendFormat:@"&idCity=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultCityId"]];
             NSLog(@"%@",order);
