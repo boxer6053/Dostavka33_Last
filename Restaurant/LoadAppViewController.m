@@ -283,7 +283,10 @@
     }
     if (![[NSUserDefaults standardUserDefaults] valueForKey:@"Currency"])
     {
-        [[NSUserDefaults standardUserDefaults] setValue:@"USD" forKey:@"Currency"];
+//        [[NSUserDefaults standardUserDefaults] setValue:@"USD" forKey:@"Currency"];
+//        [[NSUserDefaults standardUserDefaults] setValue:@"1" forKey:@"CurrencyCoefficient"];
+        
+        [[NSUserDefaults standardUserDefaults] setValue:@"UAH" forKey:@"Currency"];
         [[NSUserDefaults standardUserDefaults] setValue:@"1" forKey:@"CurrencyCoefficient"];
     }
     
