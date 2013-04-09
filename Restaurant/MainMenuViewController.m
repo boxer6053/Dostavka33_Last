@@ -147,6 +147,10 @@
     {
         [_imageButton setFrame:CGRectMake(0, 0, 320, 76 + 20)];
     }
+    else
+    {
+        [_imageButton setFrame:CGRectMake(0, 0, 320, 76)];
+    }
     
     return _imageButton;
 }
@@ -205,7 +209,7 @@
 {
     if ([[UIScreen mainScreen] bounds].size.height == 568)
     {
-        [_menuButton setFrame:CGRectMake(10, 147, 150, 40)];
+        [_menuButton setFrame:CGRectMake(10, 157, 150, 40)];
     }
     
     return _menuButton;
@@ -215,7 +219,7 @@
 {
     if ([[UIScreen mainScreen] bounds].size.height == 568)
     {
-        [_cartButton setFrame:CGRectMake(160, 147, 150, 40)];
+        [_cartButton setFrame:CGRectMake(160, 157, 150, 40)];
     }
     
     return _cartButton;
@@ -261,6 +265,20 @@
         }
     }
 }
+
+//- (UIButton *)imageButton
+//{
+//    if ([[UIScreen mainScreen] bounds].size.height == 568)
+//    {
+//        [_imageButton setFrame:CGRectMake(0, 0, 320, 96)];
+//    }
+//    else
+//    {
+//        [_imageButton setFrame:CGRectMake(0, 0, 320, 76)];
+//    }
+//    
+//    return _imageButton;
+//}
 
 -(void)setRestarauntId:(NSString *)restarauntId
 {
@@ -568,11 +586,18 @@
                 [_imageArray addObject:[promotion image]];
             }
         }
-        
-        _imageView = [[UIImageView alloc] initWithFrame: _imageButton.frame];
+    
+    if ([[UIScreen mainScreen] bounds].size.height == 568)
+    {
+        _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 106)];
+    }
+    else
+    {
+        _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 76)];
+    }
         _imageView.animationImages = _imageArray;
         _imageView.clipsToBounds = YES;
-        _imageView.contentMode = UIViewContentModeCenter;
+//        _imageView.contentMode = UIViewContentModeCenter;
         _imageView.animationDuration = _promotionsArray.count * 6.0;
         _imageView.animationRepeatCount = 0;
     
@@ -584,12 +609,24 @@
         [UIView beginAnimations:nil context:NULL];
         [UIView setAnimationDuration:2];
     
+    if ([[UIScreen mainScreen] bounds].size.height == 568)
+    {
+        _viewForPromotion.frame = CGRectMake(0, 0, 320, 106);
+    }
+    else
+    {
         _viewForPromotion.frame = CGRectMake(0, 2, 320, 76);
+    }
     
         [UIView commitAnimations];
-    
-    [self.imageButton setFrame:CGRectMake(0, 0, 320, 76 + 20)];
-    
+//    if ([[UIScreen mainScreen] bounds].size.height == 568)
+//    {
+//        [self.imageButton setFrame:CGRectMake(0, 0, 320, 96)];
+//    }
+//    else
+//    {
+//        [self.imageButton setFrame:CGRectMake(0, 0, 320, 76)];
+//    }
         [_viewForPromotion addSubview: self.imageButton];
         [self.imageButton addSubview: _imageView];
         

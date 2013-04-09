@@ -6,6 +6,7 @@
 #import "IngredientCell.h"
 #import "ProductDescriptionCell.h"
 #import "SizeStruct.h"
+#import "TempProductDescriptionCell.h"
 
 @interface ProductDetailViewController () <UITextViewDelegate>
 {
@@ -742,7 +743,8 @@
     {
         if (indexPath.section == 0)
         {
-            return 180;
+//            return 180;
+            return 100;
         }
         else
         {
@@ -820,32 +822,53 @@
     {
         if(indexPath.section == 0)
         {
-            NSString *CellIdentifier = @"ProductDescriptionCell";
-            ProductDescriptionCell *cell = (ProductDescriptionCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+//            NSString *CellIdentifier = @"ProductDescriptionCell";
+//            ProductDescriptionCell *cell = (ProductDescriptionCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+//            
+//            if(!cell)
+//            {
+//                NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"ProductDescriptionCell" owner:nil options:nil];
+//                for(id currentObject in topLevelObjects)
+//                {
+//                    if([currentObject isKindOfClass:[ProductDescriptionCell class]])
+//                    {
+//                        cell = (ProductDescriptionCell *)currentObject;
+//                        
+//                        break;
+//                    }
+//                }
+//                
+//                cell.portionProteinLabel.text = [NSString stringWithFormat:@"%5.1f", ((self.product.weight.floatValue * self.product.protein.floatValue) / 100)];
+//                cell.portionFatLabel.text = [NSString stringWithFormat:@"%5.1f", ((self.product.weight.floatValue * self.product.fats.floatValue) / 100)];
+//                cell.portionCarbohydratesLabel.text = [NSString stringWithFormat:@"%5.1f", ((self.product.weight.floatValue * self.product.carbs.floatValue) / 100)];
+//                cell.portionKCalLabel.text = [NSString stringWithFormat:@"%5.1f", ((self.product.weight.floatValue * self.product.calories.floatValue) / 100)];
+//                
+//                cell.in100gProteinLabel.text = [NSString stringWithFormat:@"%@",self.product.protein];
+//                cell.in100gFatLabel.text = [NSString stringWithFormat:@"%@",self.product.fats];
+//                cell.in100gCarbohydratesLabel.text = [NSString stringWithFormat:@"%@",self.product.carbs];
+//                cell.in100gKCalLabel.text = [NSString stringWithFormat:@"%@",self.product.calories];
+//                
+//                cell.weightLabel.text = [NSString stringWithFormat:@"%@%@%@%@",cell.weightLabel.text, @" ", self.product.weight, @" g"];
+//                
+//                cell.descriptionLabel.text = self.product.descriptionText;
+//            }
+//            return cell;
             
+            NSString *CellIdentifier = @"TempProductDescriptionCell";
+            TempProductDescriptionCell *cell = (TempProductDescriptionCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];            
             if(!cell)
             {
-                NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"ProductDescriptionCell" owner:nil options:nil];
+                NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"TempProductDescriptionCell" owner:nil options:nil];
                 for(id currentObject in topLevelObjects)
                 {
-                    if([currentObject isKindOfClass:[ProductDescriptionCell class]])
+                    if([currentObject isKindOfClass:[TempProductDescriptionCell class]])
                     {
-                        cell = (ProductDescriptionCell *)currentObject;
+                        cell = (TempProductDescriptionCell *)currentObject;
                         
                         break;
                     }
                 }
-                
-                cell.portionProteinLabel.text = [NSString stringWithFormat:@"%5.1f", ((self.product.weight.floatValue * self.product.protein.floatValue) / 100)];
-                cell.portionFatLabel.text = [NSString stringWithFormat:@"%5.1f", ((self.product.weight.floatValue * self.product.fats.floatValue) / 100)];
-                cell.portionCarbohydratesLabel.text = [NSString stringWithFormat:@"%5.1f", ((self.product.weight.floatValue * self.product.carbs.floatValue) / 100)];
-                cell.portionKCalLabel.text = [NSString stringWithFormat:@"%5.1f", ((self.product.weight.floatValue * self.product.calories.floatValue) / 100)];
-                
-                cell.in100gProteinLabel.text = [NSString stringWithFormat:@"%@",self.product.protein];
-                cell.in100gFatLabel.text = [NSString stringWithFormat:@"%@",self.product.fats];
-                cell.in100gCarbohydratesLabel.text = [NSString stringWithFormat:@"%@",self.product.carbs];
-                cell.in100gKCalLabel.text = [NSString stringWithFormat:@"%@",self.product.calories];
-                
+                                
                 cell.weightLabel.text = [NSString stringWithFormat:@"%@%@%@%@",cell.weightLabel.text, @" ", self.product.weight, @" g"];
                 
                 cell.descriptionLabel.text = self.product.descriptionText;
