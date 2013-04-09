@@ -12,6 +12,11 @@
 #import "ProductCell.h"
 #import "ProductDataStruct.h"
 #import <QuartzCore/QuartzCore.h>
+#define SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
+#define SYSTEM_VERSION_GREATER_THAN(v)              ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
 
 @interface MenuListTableViewController ()
 {
@@ -379,6 +384,16 @@
     
     cell.productPrice.text = priceString;
     cell.productDescription.text = [NSString stringWithFormat:@"%@", dataStruct.descriptionText];
+    cell.productTitle.numberOfLines =2;
+    [cell.productTitle setLineBreakMode:NSLineBreakByWordWrapping];
+    if (SYSTEM_VERSION_LESS_THAN(@"6.0")) {
+        cell.productTitle.minimumFontSize = 10.0f;
+        cell.productTitle.adjustsFontSizeToFitWidth = YES;
+    }else{
+        cell.productTitle.minimumScaleFactor = 0.3f;
+        cell.productTitle.adjustsFontSizeToFitWidth = YES;
+    }
+
     cell.productTitle.text = [NSString stringWithFormat:@"%@", dataStruct.title];
     
     if (dataStruct.hit.integerValue == 1)

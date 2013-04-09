@@ -567,25 +567,27 @@
             NSMutableString *order = [NSMutableString stringWithFormat:@"%@%@%@%@", [[NSUserDefaults standardUserDefaults] valueForKey:@"dbLink"], @"/Customer_Scripts/v2/makeOrder.php?", [[NSUserDefaults standardUserDefaults] valueForKey:@"DBid"], @"&tag=order&idPhone=1&UUID="];
             //                [self.dictionary setObject: [[NSUserDefaults standardUserDefaults] valueForKey:@"DBid"] forKey:@"DBid"];
             
-            //                This is for using on device
+                   //      This is for using on device
             
-            //                NSString *deviceToken = [(RestaurantAppDelegate *)[[UIApplication sharedApplication] delegate] testToken1];
-            //                [self.dictionary setObject: deviceToken forKey:@"UUID"];
+                        NSString *deviceToken = [(RestaurantAppDelegate *)[[UIApplication sharedApplication] delegate] testToken1];
+            NSLog(@"deviceToken %@", deviceToken);
+            [order appendString:deviceToken];
+                        // [self.dictionary setObject: deviceToken forKey:@"UUID"];
             
             
             //                this is for simulation
-            if (![[NSUserDefaults standardUserDefaults] objectForKey:@"uid"])
-            {
-                NSString *uid = [self createUUID];
-                [[NSUserDefaults standardUserDefaults] setValue:uid forKey:@"uid"];
-                //9E3C884C-6E57-4D16-884F-46132825F21E
-                [[NSUserDefaults standardUserDefaults] synchronize];
-                [order  appendString:uid];
-            }
-            else
-            {
-                [order appendString:[[NSUserDefaults standardUserDefaults] objectForKey:@"uid"]];
-            }
+//            if (![[NSUserDefaults standardUserDefaults] objectForKey:@"uid"])
+//            {
+//                NSString *uid = [self createUUID];
+//                [[NSUserDefaults standardUserDefaults] setValue:uid forKey:@"uid"];
+//                //9E3C884C-6E57-4D16-884F-46132825F21E
+//                [[NSUserDefaults standardUserDefaults] synchronize];
+//                [order  appendString:uid];
+//            }
+//            else
+//            {
+//                [order appendString:[[NSUserDefaults standardUserDefaults] objectForKey:@"uid"]];
+//            }
             
             NSArray *cartArray = [[[GettingCoreContent alloc] init] fetchAllProductsIdAndTheirCountWithPriceForEntity:@"Cart"];
             NSMutableArray *arrayOfProducts = [[NSMutableArray alloc]init];

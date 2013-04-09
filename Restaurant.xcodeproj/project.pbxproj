@@ -88,6 +88,7 @@
 		F53DF5D3161ED8CF0004C7A3 /* Line1pVerticalGray.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F53DF5D2161ED8CF0004C7A3 /* Line1pVerticalGray.jpg */; };
 		F541FCDC15EF5982003B13AE /* Button2.png in Resources */ = {isa = PBXBuildFile; fileRef = F541FCDB15EF5982003B13AE /* Button2.png */; };
 		F541FCDE15EF6987003B13AE /* button3.png in Resources */ = {isa = PBXBuildFile; fileRef = F541FCDD15EF6987003B13AE /* button3.png */; };
+		F54E25D517044D4D00D27972 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F54E25D417044D4D00D27972 /* MainStoryboard_iPad.storyboard */; };
 		F5513A0915DA3AA90083E075 /* IconDownloader.h in Headers */ = {isa = PBXBuildFile; fileRef = 78EF80AD157381DD00478EEB /* IconDownloader.h */; settings = {ATTRIBUTES = (); }; };
 		F5513A0A15DA3AA90083E075 /* LoadAppViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 781B8F271546DBDD0074EDBD /* LoadAppViewController.h */; settings = {ATTRIBUTES = (); }; };
 		F5513A0B15DA3AA90083E075 /* MainMenuViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 781B8F2A1546DD590074EDBD /* MainMenuViewController.h */; settings = {ATTRIBUTES = (); }; };
@@ -342,6 +343,7 @@
 		F53DF5D2161ED8CF0004C7A3 /* Line1pVerticalGray.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Line1pVerticalGray.jpg; sourceTree = "<group>"; };
 		F541FCDB15EF5982003B13AE /* Button2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Button2.png; sourceTree = "<group>"; };
 		F541FCDD15EF6987003B13AE /* button3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button3.png; sourceTree = "<group>"; };
+		F54E25D417044D4D00D27972 /* MainStoryboard_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		F58BD5AC156E7B8A00D31A09 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		F58E734D15D1358800CBCE65 /* MapViewAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewAnnotation.h; sourceTree = "<group>"; };
 		F58E734E15D1358800CBCE65 /* MapViewAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewAnnotation.m; sourceTree = "<group>"; };
@@ -516,6 +518,7 @@
 				F5E93A4D156CFFB3005ED3ED /* Cells */,
 				F51063BE15C918FA00ED0368 /* Models */,
 				781B8F191546DB870074EDBD /* MainStoryboard_iPhone.storyboard */,
+				F54E25D417044D4D00D27972 /* MainStoryboard_iPad.storyboard */,
 				78D3CF1C156A9248003202BD /* Restaurants.xcdatamodeld */,
 				781B8F161546DB870074EDBD /* RestaurantAppDelegate.h */,
 				781B8F171546DB870074EDBD /* RestaurantAppDelegate.m */,
@@ -1045,6 +1048,7 @@
 				FA935702164BFD4200E2AA13 /* Checkbox_unchecked_40px.png in Resources */,
 				FAEB517B165E6D390029141E /* IngredientCell.xib in Resources */,
 				FAEB5181165E6DBD0029141E /* ProductDescriptionCell.xib in Resources */,
+				F54E25D517044D4D00D27972 /* MainStoryboard_iPad.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1233,7 +1237,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "519B8B93-794E-49BC-98EE-312A42D707C4";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E29BB0AE-D32C-4173-9482-BF43538E754B";
 				SKIP_INSTALL = NO;
 				USER_HEADER_SEARCH_PATHS = "~/Vendor/SSToolkit ~/GMGridView";
 				WRAPPER_EXTENSION = app;
