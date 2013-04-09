@@ -1058,7 +1058,7 @@
 				FA935702164BFD4200E2AA13 /* Checkbox_unchecked_40px.png in Resources */,
 				FAEB517B165E6D390029141E /* IngredientCell.xib in Resources */,
 				FAEB5181165E6DBD0029141E /* ProductDescriptionCell.xib in Resources */,
-				F54E25D517044D4D00D27972 /* MainStoryboard_iPad.storyboard in Resources */,
+				F5AA773E171405BB006A6268 /* TempProductDescriptionCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
