@@ -227,7 +227,7 @@
             NSNumber *maxInterafaceId =  [content fetchMaximumNumberOfAttribute:@"underbarid" fromEntity:@"Titles"];
             NSNumber *maxInterfaceVersion = [content fetchMaximumNumberOfAttribute:@"version" fromEntity:@"Titles"];
             
-            NSMutableString *myString = [NSMutableString stringWithFormat:@"%@%@%@%@", [[NSUserDefaults standardUserDefaults] valueForKey:@"dbLink"], @"/Customer_Scripts/v2/update.php?", [[NSUserDefaults standardUserDefaults] valueForKey:@"DBid"], @"&tag=params&idPhone=1"];
+            NSMutableString *myString = [NSMutableString stringWithFormat:@"%@%@%@%@", [[NSUserDefaults standardUserDefaults] valueForKey:@"dbLink"], @"/Customer_Scripts/update.php?", [[NSUserDefaults standardUserDefaults] valueForKey:@"DBid"], @"&tag=params&idPhone=1"];
             
             [myString appendFormat:@"&UUID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"deviceToken"]];
             
@@ -356,7 +356,7 @@
         NSNumber *maxPromotionsId =  [content fetchMaximumNumberOfAttribute:@"underbarid" fromEntity:@"Promotions"];
         NSNumber *maxPromotionsVersion = [content fetchMaximumNumberOfAttribute:@"version" fromEntity:@"Promotions"];
         
-        NSMutableString *myString = [NSMutableString stringWithFormat:@"%@%@%@%@", [[NSUserDefaults standardUserDefaults] valueForKey:@"dbLink"], @"/Customer_Scripts/v2/update.php?", [[NSUserDefaults standardUserDefaults] valueForKey:@"DBid"], @"&tag=update"];
+        NSMutableString *myString = [NSMutableString stringWithFormat:@"%@%@%@%@", [[NSUserDefaults standardUserDefaults] valueForKey:@"dbLink"], @"/Customer_Scripts/update.php?", [[NSUserDefaults standardUserDefaults] valueForKey:@"DBid"], @"&tag=update"];
         
         [myString appendFormat:@"&city_id=%@", [[NSUserDefaults standardUserDefaults] objectForKey:@"defaultCityId"]];
         [myString appendFormat:@"&lang_id=%@", [[NSUserDefaults standardUserDefaults] objectForKey:@"defaultLanguageId"]];

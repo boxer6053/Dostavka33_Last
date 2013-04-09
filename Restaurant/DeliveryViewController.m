@@ -564,7 +564,7 @@
             //    orderStringUrl = [orderStringUrl stringByAppendingString: @"&DBid=10&UUID=fdsampled-roma-roma-roma-69416d19df4e&ProdIDs=9;11&counts=30;5&city=Kyiv&street=qweqw&house=1&room_office=232&custName=eqweqwewqewe&phone=+380(099)9999999&idDelivery=1"];
             
             
-            NSMutableString *order = [NSMutableString stringWithFormat:@"%@%@%@%@", [[NSUserDefaults standardUserDefaults] valueForKey:@"dbLink"], @"/Customer_Scripts/v2/makeOrder.php?", [[NSUserDefaults standardUserDefaults] valueForKey:@"DBid"], @"&tag=order&idPhone=1&UUID="];
+            NSMutableString *order = [NSMutableString stringWithFormat:@"%@%@%@%@", [[NSUserDefaults standardUserDefaults] valueForKey:@"dbLink"], @"/Customer_Scripts/makeOrder.php?", [[NSUserDefaults standardUserDefaults] valueForKey:@"DBid"], @"&tag=order&idPhone=1&UUID="];
             //                [self.dictionary setObject: [[NSUserDefaults standardUserDefaults] valueForKey:@"DBid"] forKey:@"DBid"];
             
             //                This is for using on device

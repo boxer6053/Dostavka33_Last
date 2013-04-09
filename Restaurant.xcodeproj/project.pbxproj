@@ -144,6 +144,9 @@
 		F59A9ED216034C3800D8A6ED /* HistoryPartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F59A9ECF16034C3800D8A6ED /* HistoryPartCell.xib */; };
 		F59A9EDD16034DC600D8A6ED /* buttonPlayRight.png in Resources */ = {isa = PBXBuildFile; fileRef = F59A9EDB16034DC600D8A6ED /* buttonPlayRight.png */; };
 		F59A9EDE16034DC600D8A6ED /* buttonPlayDown.png in Resources */ = {isa = PBXBuildFile; fileRef = F59A9EDC16034DC600D8A6ED /* buttonPlayDown.png */; };
+		F5AA773E171405BB006A6268 /* TempProductDescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5AA773D171405BB006A6268 /* TempProductDescriptionCell.xib */; };
+		F5AA7745171405E4006A6268 /* TempProductDescriptionCell.h in Headers */ = {isa = PBXBuildFile; fileRef = F5AA7743171405E4006A6268 /* TempProductDescriptionCell.h */; };
+		F5AA7746171405E4006A6268 /* TempProductDescriptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5AA7744171405E4006A6268 /* TempProductDescriptionCell.m */; };
 		F5ACDBCA15DBEE510074E028 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5ACDBC915DBEE510074E028 /* Twitter.framework */; };
 		F5B4609615C2B78F00A6815C /* Cart1.PNG in Resources */ = {isa = PBXBuildFile; fileRef = F5B4609515C2B78F00A6815C /* Cart1.PNG */; };
 		F5B4609A15C2BF7900A6815C /* shopping-cart.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B4609915C2BF7900A6815C /* shopping-cart.png */; };
@@ -369,6 +372,9 @@
 		F59A9ECF16034C3800D8A6ED /* HistoryPartCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryPartCell.xib; sourceTree = "<group>"; };
 		F59A9EDB16034DC600D8A6ED /* buttonPlayRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonPlayRight.png; sourceTree = "<group>"; };
 		F59A9EDC16034DC600D8A6ED /* buttonPlayDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonPlayDown.png; sourceTree = "<group>"; };
+		F5AA773D171405BB006A6268 /* TempProductDescriptionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TempProductDescriptionCell.xib; sourceTree = "<group>"; };
+		F5AA7743171405E4006A6268 /* TempProductDescriptionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TempProductDescriptionCell.h; sourceTree = "<group>"; };
+		F5AA7744171405E4006A6268 /* TempProductDescriptionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TempProductDescriptionCell.m; sourceTree = "<group>"; };
 		F5ACDBC915DBEE510074E028 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		F5B4609515C2B78F00A6815C /* Cart1.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cart1.PNG; sourceTree = "<group>"; };
 		F5B4609915C2BF7900A6815C /* shopping-cart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shopping-cart.png"; sourceTree = "<group>"; };
@@ -749,6 +755,9 @@
 				FAEB517C165E6DBD0029141E /* ProductDescriptionCell.h */,
 				FAEB517D165E6DBD0029141E /* ProductDescriptionCell.m */,
 				FAEB517E165E6DBD0029141E /* ProductDescriptionCell.xib */,
+				F5AA773D171405BB006A6268 /* TempProductDescriptionCell.xib */,
+				F5AA7743171405E4006A6268 /* TempProductDescriptionCell.h */,
+				F5AA7744171405E4006A6268 /* TempProductDescriptionCell.m */,
 				FAEB5176165E6D390029141E /* IngredientCell.h */,
 				FAEB5177165E6D390029141E /* IngredientCell.m */,
 				FAEB5178165E6D390029141E /* IngredientCell.xib */,
@@ -868,6 +877,7 @@
 				FA9C75371678FB6F0071D4DD /* NavigationTableViewController.h in Headers */,
 				FACE6A93167B7E62004F55D4 /* CollectionViewController.h in Headers */,
 				FA936663168EFE1D00DB341D /* SizeStruct.h in Headers */,
+				F5AA7745171405E4006A6268 /* TempProductDescriptionCell.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1045,6 +1055,7 @@
 				FA935702164BFD4200E2AA13 /* Checkbox_unchecked_40px.png in Resources */,
 				FAEB517B165E6D390029141E /* IngredientCell.xib in Resources */,
 				FAEB5181165E6DBD0029141E /* ProductDescriptionCell.xib in Resources */,
+				F5AA773E171405BB006A6268 /* TempProductDescriptionCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1110,6 +1121,7 @@
 				FA9C75381678FB6F0071D4DD /* NavigationTableViewController.m in Sources */,
 				FACE6A94167B7E63004F55D4 /* CollectionViewController.m in Sources */,
 				FA936664168EFE1D00DB341D /* SizeStruct.m in Sources */,
+				F5AA7746171405E4006A6268 /* TempProductDescriptionCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
