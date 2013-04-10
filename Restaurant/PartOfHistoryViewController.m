@@ -196,22 +196,26 @@
     [totalPriceSumValue setBackgroundColor:[UIColor clearColor]];
     [self.infoOfProductInOrderDetailView addSubview:totalPriceSumValue];
     
-    _totalPriceSumWithDiscountCaption = [[UILabel alloc] initWithFrame:CGRectMake(100, _totalPriceSumCaption.frame.origin.y + _totalPriceSumCaption.frame.size.height, 92, _totalPriceSumCaption.frame.size.height)];
-    _totalPriceSumWithDiscountCaption.textAlignment = UIControlContentHorizontalAlignmentRight;
-    _totalPriceSumWithDiscountCaption.text = _totalPriceVarWithDiscount;
-    [_totalPriceSumWithDiscountCaption setFont:[UIFont systemFontOfSize:13]];
-    [_totalPriceSumWithDiscountCaption setTextColor:[UIColor orangeColor]];
-    [_totalPriceSumWithDiscountCaption setBackgroundColor:[UIColor clearColor]];
-    [self.infoOfProductInOrderDetailView addSubview:_totalPriceSumWithDiscountCaption];
+    //-------------------------- розкоментувати якщо треба ціна з знижкою --------------------------
+//    _totalPriceSumWithDiscountCaption = [[UILabel alloc] initWithFrame:CGRectMake(100, _totalPriceSumCaption.frame.origin.y + _totalPriceSumCaption.frame.size.height, 92, _totalPriceSumCaption.frame.size.height)];
+//    _totalPriceSumWithDiscountCaption.textAlignment = UIControlContentHorizontalAlignmentRight;
+//    _totalPriceSumWithDiscountCaption.text = _totalPriceVarWithDiscount;
+//    [_totalPriceSumWithDiscountCaption setFont:[UIFont systemFontOfSize:13]];
+//    [_totalPriceSumWithDiscountCaption setTextColor:[UIColor orangeColor]];
+//    [_totalPriceSumWithDiscountCaption setBackgroundColor:[UIColor clearColor]];
+//    [self.infoOfProductInOrderDetailView addSubview:_totalPriceSumWithDiscountCaption];
 
     
-    UILabel *totalPriceSumWithDiscountValue = [[UILabel alloc] initWithFrame:CGRectMake(_totalPriceSumWithDiscountCaption.frame.origin.x + _totalPriceSumWithDiscountCaption.frame.size.width, _totalPriceSumWithDiscountCaption.frame.origin.y, 92, _totalPriceSumWithDiscountCaption.frame.size.height)];
-    totalPriceSumWithDiscountValue.text = [NSString stringWithFormat:@"%7.2f %@", totalProductPriceWithDiscount, [[NSUserDefaults standardUserDefaults] objectForKey:@"Currency"]];
-    [totalPriceSumWithDiscountValue setFont:[UIFont boldSystemFontOfSize:13]];
-    [totalPriceSumWithDiscountValue setBackgroundColor:[UIColor clearColor]];
-    [self.infoOfProductInOrderDetailView addSubview:totalPriceSumWithDiscountValue];
+//    UILabel *totalPriceSumWithDiscountValue = [[UILabel alloc] initWithFrame:CGRectMake(_totalPriceSumWithDiscountCaption.frame.origin.x + _totalPriceSumWithDiscountCaption.frame.size.width, _totalPriceSumWithDiscountCaption.frame.origin.y, 92, _totalPriceSumWithDiscountCaption.frame.size.height)];
+//    totalPriceSumWithDiscountValue.text = [NSString stringWithFormat:@"%7.2f %@", totalProductPriceWithDiscount, [[NSUserDefaults standardUserDefaults] objectForKey:@"Currency"]];
+//    [totalPriceSumWithDiscountValue setFont:[UIFont boldSystemFontOfSize:13]];
+//    [totalPriceSumWithDiscountValue setBackgroundColor:[UIColor clearColor]];
+//    [self.infoOfProductInOrderDetailView addSubview:totalPriceSumWithDiscountValue];
     
-    self.infoOfProductInOrderDetailView.frame = CGRectMake(15, 40, 290, _totalPriceSumWithDiscountCaption.frame.origin.y + _totalPriceSumWithDiscountCaption.frame.size.height + 10);
+//    self.infoOfProductInOrderDetailView.frame = CGRectMake(15, 40, 290, _totalPriceSumWithDiscountCaption.frame.origin.y + _totalPriceSumWithDiscountCaption.frame.size.height + 10);
+    //-------------------------- розкоментувати якщо треба ціна з знижкою --------------------------
+    
+    self.infoOfProductInOrderDetailView.frame = CGRectMake(15, 40, 290, _totalPriceSumCaption.frame.origin.y + _totalPriceSumCaption.frame.size.height + 10);
     
     int curentNumberOfStatus;
     
@@ -227,126 +231,128 @@
         
     }
     
-    NSArray *sortedStatusArray = [self.db getArrayFromCoreDatainEntetyName:@"Statuses" withSortDescriptor:@"value"];
-    
-    int countOfStatus = [[self.db fetchAllObjectsFromEntity:@"Statuses"] count] - 1;
-    
-    NSMutableArray *arrowArray = [[NSMutableArray alloc] init];
-    
-    for (int i = 0; i < countOfStatus; i++) {
-                
-        if (i == 0) {
-            UIImageView *firstArrow = [[UIImageView alloc] initWithFrame:CGRectMake(5, 40, 315 / countOfStatus + ((countOfStatus - 1) * 10)/countOfStatus, 50)];
-            if (curentNumberOfStatus == 1) {
-                [firstArrow setImage:[UIImage imageNamed:@"arrow1_green.png"]];
-                [self.scrollView addSubview:firstArrow];
-                [arrowArray addObject:firstArrow];
-                
-                NSString *str = [NSString stringWithFormat:@"%@", [[sortedStatusArray objectAtIndex:i + 2] valueForKey:@"underbarid"]];
-                NSArray *tempArray = [self.db fetchStatusForOrder:str];
-                NSString *compareString = [NSString stringWithFormat:@"%@", [[tempArray objectAtIndex:0] valueForKey:@"value"]];
-                if ([compareString isEqualToString:@"1"]) {
-                    UILabel *statusLabel = [[UILabel alloc] initWithFrame:CGRectMake([[arrowArray objectAtIndex:i] frame].origin.x, [[arrowArray objectAtIndex:i] frame].origin.y + [[arrowArray objectAtIndex:i] frame].size.height, [[arrowArray objectAtIndex:i] frame].size.width, 21)];
-                    [statusLabel setText:[[tempArray objectAtIndex:1] valueForKey:@"name"]];
-                    [statusLabel setTextColor:[UIColor whiteColor]];
-                    [statusLabel setFont:[UIFont systemFontOfSize:12]];
-                    [statusLabel setTextAlignment:NSTextAlignmentCenter];
-                    [statusLabel setBackgroundColor:[UIColor clearColor]];
-                    [self.scrollView addSubview:statusLabel];
-        }
-        
-            } else {
-                [firstArrow setImage:[UIImage imageNamed:@"arrow1_red.png"]];
-                [self.scrollView addSubview:firstArrow];
-                [arrowArray addObject:firstArrow];
-            }
-        } else {
-            if (i == countOfStatus - 1) {
-                UIImageView *lastArrow = [[UIImageView alloc] initWithFrame:CGRectMake([[arrowArray objectAtIndex:i - 1] frame].origin.x + [[arrowArray objectAtIndex:i - 1] frame].size.width - 10, 40, 315 / countOfStatus + ((countOfStatus - 1) * 10)/countOfStatus, 50)];
-                if (curentNumberOfStatus == 0) {
-                    [lastArrow setImage:[UIImage imageNamed:@"arrow3_green.png"]];
-                    [self.scrollView addSubview:lastArrow];
-                    [arrowArray addObject:lastArrow];
-                    for (int i = 0; i < arrowArray.count - 1; i++) {
-                        if (i == 0) {
-                            [[arrowArray objectAtIndex:i] setImage:[UIImage imageNamed:@"arrow1_green.png"]];
-                        } else {
-                            if (i == arrowArray.count - 1) {
-                                [[arrowArray objectAtIndex:i] setImage:[UIImage imageNamed:@"arrow3_green.png"]];
-                            } else {
-                                [[arrowArray objectAtIndex:i] setImage:[UIImage imageNamed:@"arrow2_green.png"]];
-                            }
-                        }
-                    }
-                    
-                    UILabel *statusLabel = [[UILabel alloc] initWithFrame:CGRectMake([[arrowArray objectAtIndex:arrowArray.count - 1] frame].origin.x, [[arrowArray objectAtIndex:arrowArray.count - 1] frame].origin.y + [[arrowArray objectAtIndex:arrowArray.count - 1] frame].size.height, [[arrowArray objectAtIndex:arrowArray.count - 1] frame].size.width, 21)];
-                    NSArray *tempArray = [self.db fetchStatusForOrder:@"2"];
-                    [statusLabel setText:[[tempArray objectAtIndex:1] valueForKey:@"name"]];
-                    [statusLabel setTextColor:[UIColor whiteColor]];
-                    [statusLabel setFont:[UIFont systemFontOfSize:12]];
-                    [statusLabel setTextAlignment:NSTextAlignmentCenter];
-                    [statusLabel setBackgroundColor:[UIColor clearColor]];
-                    [self.scrollView addSubview:statusLabel];
-
-                } else {
-                    
-                    if (curentNumberOfStatus == -1) {
-                        [lastArrow setImage:[UIImage imageNamed:@"arrow3_cancel_red.png"]];
-                        [self.scrollView addSubview:lastArrow];
-                        [arrowArray addObject:lastArrow];
-                        
-                        UILabel *statusLabel = [[UILabel alloc] initWithFrame:CGRectMake([[arrowArray objectAtIndex:arrowArray.count - 1] frame].origin.x, [[arrowArray objectAtIndex:arrowArray.count - 1] frame].origin.y + [[arrowArray objectAtIndex:arrowArray.count - 1] frame].size.height, [[arrowArray objectAtIndex:arrowArray.count - 1] frame].size.width, 21)];
-                        NSArray *tempArray = [self.db fetchStatusForOrder:@"1"];
-                        [statusLabel setText:[[tempArray objectAtIndex:1] valueForKey:@"name"]];
-                        [statusLabel setTextColor:[UIColor whiteColor]];
-                        [statusLabel setFont:[UIFont systemFontOfSize:12]];
-                        [statusLabel setTextAlignment:NSTextAlignmentCenter];
-                        [statusLabel setBackgroundColor:[UIColor clearColor]];
-                        [self.scrollView addSubview:statusLabel];
-
-                        
-                    } else {
-                        [lastArrow setImage:[UIImage imageNamed:@"arrow3_red.png"]];
-                        [self.scrollView addSubview:lastArrow];
-                        [arrowArray addObject:lastArrow];
-                    }
-                }
-            }
-            else {
-                UIImageView *arrow = [[UIImageView alloc] initWithFrame:CGRectMake([[arrowArray objectAtIndex:i - 1] frame].origin.x + [[arrowArray objectAtIndex:i - 1] frame].size.width - 10, 40, 315 / countOfStatus + ((countOfStatus - 1) * 10)/countOfStatus, 50)];
-                if (curentNumberOfStatus == i + 1 || curentNumberOfStatus == i + 2) {
-                    [arrow setImage:[UIImage imageNamed:@"arrow2_green.png"]];
-                    [self.scrollView addSubview:arrow];
-                    [arrowArray addObject:arrow];
-                    for (int j = 0; j < arrowArray.count - 1 ; j++) {
-                        if (j == 0) {
-                            [[arrowArray objectAtIndex:j] setImage:[UIImage imageNamed:@"arrow1_green.png"]];
-                        } else {
-                            [[arrowArray objectAtIndex:j] setImage:[UIImage imageNamed:@"arrow2_green.png"]];
-                        }
-                    }
-                    
-                    NSString *str = [NSString stringWithFormat:@"%@", [[sortedStatusArray objectAtIndex:i + 2] valueForKey:@"underbarid"]];
-                    NSArray *tempArray = [self.db fetchStatusForOrder:str];
-                    NSString *compareString = [NSString stringWithFormat:@"%@", [[tempArray objectAtIndex:0] valueForKey:@"value"]];
-                    if (![compareString isEqualToString:@"1"]) {
-                        UILabel *statusLabel = [[UILabel alloc] initWithFrame:CGRectMake([[arrowArray objectAtIndex:i] frame].origin.x, [[arrowArray objectAtIndex:i] frame].origin.y + [[arrowArray objectAtIndex:i] frame].size.height, [[arrowArray objectAtIndex:i] frame].size.width, 21)];
-                        [statusLabel setText:[[tempArray objectAtIndex:1] valueForKey:@"name"]];
-                        [statusLabel setTextColor:[UIColor whiteColor]];
-                        [statusLabel setFont:[UIFont systemFontOfSize:12]];
-                        [statusLabel setTextAlignment:NSTextAlignmentCenter];
-                        [statusLabel setBackgroundColor:[UIColor clearColor]];
-                        [self.scrollView addSubview:statusLabel];
-                    }
-
-                } else {
-                    [arrow setImage:[UIImage imageNamed:@"arrow2_red.png"]];
-                    [self.scrollView addSubview:arrow];
-                    [arrowArray addObject:arrow];
-                }
-            }
-        }
-    }
+    //--------------------------------- Розкоментувати для додання статус бара ---------------------------------
+//    NSArray *sortedStatusArray = [self.db getArrayFromCoreDatainEntetyName:@"Statuses" withSortDescriptor:@"value"];
+//    
+//    int countOfStatus = [[self.db fetchAllObjectsFromEntity:@"Statuses"] count] - 1;
+//    
+//    NSMutableArray *arrowArray = [[NSMutableArray alloc] init];
+//    
+//    for (int i = 0; i < countOfStatus; i++) {
+//                
+//        if (i == 0) {
+//            UIImageView *firstArrow = [[UIImageView alloc] initWithFrame:CGRectMake(5, 40, 315 / countOfStatus + ((countOfStatus - 1) * 10)/countOfStatus, 50)];
+//            if (curentNumberOfStatus == 1) {
+//                [firstArrow setImage:[UIImage imageNamed:@"arrow1_green.png"]];
+//                [self.scrollView addSubview:firstArrow];
+//                [arrowArray addObject:firstArrow];
+//                
+//                NSString *str = [NSString stringWithFormat:@"%@", [[sortedStatusArray objectAtIndex:i + 2] valueForKey:@"underbarid"]];
+//                NSArray *tempArray = [self.db fetchStatusForOrder:str];
+//                NSString *compareString = [NSString stringWithFormat:@"%@", [[tempArray objectAtIndex:0] valueForKey:@"value"]];
+//                if ([compareString isEqualToString:@"1"]) {
+//                    UILabel *statusLabel = [[UILabel alloc] initWithFrame:CGRectMake([[arrowArray objectAtIndex:i] frame].origin.x, [[arrowArray objectAtIndex:i] frame].origin.y + [[arrowArray objectAtIndex:i] frame].size.height, [[arrowArray objectAtIndex:i] frame].size.width, 21)];
+//                    [statusLabel setText:[[tempArray objectAtIndex:1] valueForKey:@"name"]];
+//                    [statusLabel setTextColor:[UIColor whiteColor]];
+//                    [statusLabel setFont:[UIFont systemFontOfSize:12]];
+//                    [statusLabel setTextAlignment:NSTextAlignmentCenter];
+//                    [statusLabel setBackgroundColor:[UIColor clearColor]];
+//                    [self.scrollView addSubview:statusLabel];
+//        }
+//        
+//            } else {
+//                [firstArrow setImage:[UIImage imageNamed:@"arrow1_red.png"]];
+//                [self.scrollView addSubview:firstArrow];
+//                [arrowArray addObject:firstArrow];
+//            }
+//        } else {
+//            if (i == countOfStatus - 1) {
+//                UIImageView *lastArrow = [[UIImageView alloc] initWithFrame:CGRectMake([[arrowArray objectAtIndex:i - 1] frame].origin.x + [[arrowArray objectAtIndex:i - 1] frame].size.width - 10, 40, 315 / countOfStatus + ((countOfStatus - 1) * 10)/countOfStatus, 50)];
+//                if (curentNumberOfStatus == 0) {
+//                    [lastArrow setImage:[UIImage imageNamed:@"arrow3_green.png"]];
+//                    [self.scrollView addSubview:lastArrow];
+//                    [arrowArray addObject:lastArrow];
+//                    for (int i = 0; i < arrowArray.count - 1; i++) {
+//                        if (i == 0) {
+//                            [[arrowArray objectAtIndex:i] setImage:[UIImage imageNamed:@"arrow1_green.png"]];
+//                        } else {
+//                            if (i == arrowArray.count - 1) {
+//                                [[arrowArray objectAtIndex:i] setImage:[UIImage imageNamed:@"arrow3_green.png"]];
+//                            } else {
+//                                [[arrowArray objectAtIndex:i] setImage:[UIImage imageNamed:@"arrow2_green.png"]];
+//                            }
+//                        }
+//                    }
+//                    
+//                    UILabel *statusLabel = [[UILabel alloc] initWithFrame:CGRectMake([[arrowArray objectAtIndex:arrowArray.count - 1] frame].origin.x, [[arrowArray objectAtIndex:arrowArray.count - 1] frame].origin.y + [[arrowArray objectAtIndex:arrowArray.count - 1] frame].size.height, [[arrowArray objectAtIndex:arrowArray.count - 1] frame].size.width, 21)];
+//                    NSArray *tempArray = [self.db fetchStatusForOrder:@"2"];
+//                    [statusLabel setText:[[tempArray objectAtIndex:1] valueForKey:@"name"]];
+//                    [statusLabel setTextColor:[UIColor whiteColor]];
+//                    [statusLabel setFont:[UIFont systemFontOfSize:12]];
+//                    [statusLabel setTextAlignment:NSTextAlignmentCenter];
+//                    [statusLabel setBackgroundColor:[UIColor clearColor]];
+//                    [self.scrollView addSubview:statusLabel];
+//
+//                } else {
+//                    
+//                    if (curentNumberOfStatus == -1) {
+//                        [lastArrow setImage:[UIImage imageNamed:@"arrow3_cancel_red.png"]];
+//                        [self.scrollView addSubview:lastArrow];
+//                        [arrowArray addObject:lastArrow];
+//                        
+//                        UILabel *statusLabel = [[UILabel alloc] initWithFrame:CGRectMake([[arrowArray objectAtIndex:arrowArray.count - 1] frame].origin.x, [[arrowArray objectAtIndex:arrowArray.count - 1] frame].origin.y + [[arrowArray objectAtIndex:arrowArray.count - 1] frame].size.height, [[arrowArray objectAtIndex:arrowArray.count - 1] frame].size.width, 21)];
+//                        NSArray *tempArray = [self.db fetchStatusForOrder:@"1"];
+//                        [statusLabel setText:[[tempArray objectAtIndex:1] valueForKey:@"name"]];
+//                        [statusLabel setTextColor:[UIColor whiteColor]];
+//                        [statusLabel setFont:[UIFont systemFontOfSize:12]];
+//                        [statusLabel setTextAlignment:NSTextAlignmentCenter];
+//                        [statusLabel setBackgroundColor:[UIColor clearColor]];
+//                        [self.scrollView addSubview:statusLabel];
+//
+//                        
+//                    } else {
+//                        [lastArrow setImage:[UIImage imageNamed:@"arrow3_red.png"]];
+//                        [self.scrollView addSubview:lastArrow];
+//                        [arrowArray addObject:lastArrow];
+//                    }
+//                }
+//            }
+//            else {
+//                UIImageView *arrow = [[UIImageView alloc] initWithFrame:CGRectMake([[arrowArray objectAtIndex:i - 1] frame].origin.x + [[arrowArray objectAtIndex:i - 1] frame].size.width - 10, 40, 315 / countOfStatus + ((countOfStatus - 1) * 10)/countOfStatus, 50)];
+//                if (curentNumberOfStatus == i + 1 || curentNumberOfStatus == i + 2) {
+//                    [arrow setImage:[UIImage imageNamed:@"arrow2_green.png"]];
+//                    [self.scrollView addSubview:arrow];
+//                    [arrowArray addObject:arrow];
+//                    for (int j = 0; j < arrowArray.count - 1 ; j++) {
+//                        if (j == 0) {
+//                            [[arrowArray objectAtIndex:j] setImage:[UIImage imageNamed:@"arrow1_green.png"]];
+//                        } else {
+//                            [[arrowArray objectAtIndex:j] setImage:[UIImage imageNamed:@"arrow2_green.png"]];
+//                        }
+//                    }
+//                    
+//                    NSString *str = [NSString stringWithFormat:@"%@", [[sortedStatusArray objectAtIndex:i + 2] valueForKey:@"underbarid"]];
+//                    NSArray *tempArray = [self.db fetchStatusForOrder:str];
+//                    NSString *compareString = [NSString stringWithFormat:@"%@", [[tempArray objectAtIndex:0] valueForKey:@"value"]];
+//                    if (![compareString isEqualToString:@"1"]) {
+//                        UILabel *statusLabel = [[UILabel alloc] initWithFrame:CGRectMake([[arrowArray objectAtIndex:i] frame].origin.x, [[arrowArray objectAtIndex:i] frame].origin.y + [[arrowArray objectAtIndex:i] frame].size.height, [[arrowArray objectAtIndex:i] frame].size.width, 21)];
+//                        [statusLabel setText:[[tempArray objectAtIndex:1] valueForKey:@"name"]];
+//                        [statusLabel setTextColor:[UIColor whiteColor]];
+//                        [statusLabel setFont:[UIFont systemFontOfSize:12]];
+//                        [statusLabel setTextAlignment:NSTextAlignmentCenter];
+//                        [statusLabel setBackgroundColor:[UIColor clearColor]];
+//                        [self.scrollView addSubview:statusLabel];
+//                    }
+//
+//                } else {
+//                    [arrow setImage:[UIImage imageNamed:@"arrow2_red.png"]];
+//                    [self.scrollView addSubview:arrow];
+//                    [arrowArray addObject:arrow];
+//                }
+//            }
+//        }
+//    }
+    //--------------------------------- Розкоментувати для додання статус бара ---------------------------------
 }
 
 - (void)viewDidUnload
@@ -399,14 +405,14 @@
         [UIView setAnimationDuration:0.3];
         self.infoOfOrderContainer.frame = CGRectMake(self.firstContainerX, self.firstContainerY, self.firstContainerWidth, self.infoOfOrderDetailView.frame.size.height + 60);
         
-        self.reorderButton.frame = CGRectMake(self.reorderButton.frame.origin.x, self.infoOfProductInOrderContainer.frame.origin.y + self.infoOfProductInOrderContainer.frame.size.height + 70, self.reorderButton.frame.size.width, self.reorderButton.frame.size.height);
+        self.reorderButton.frame = CGRectMake(self.reorderButton.frame.origin.x, self.infoOfProductInOrderContainer.frame.origin.y + self.infoOfProductInOrderContainer.frame.size.height + 120, self.reorderButton.frame.size.width, self.reorderButton.frame.size.height);
         
         self.tempFirstContainerY = self.infoOfProductInOrderContainer.frame.origin.y;
         
         if (!self.isInfoOfProductInOrder) {
             self.infoOfProductInOrderContainer.frame = CGRectMake(self.secondContainerX, self.firstContainerY + self.infoOfOrderContainer.frame.size.height - 1, self.secondContainerWidth, self.secondContainerHeight);
             
-            self.reorderButton.frame = CGRectMake(self.reorderButton.frame.origin.x, self.infoOfProductInOrderContainer.frame.origin.y + self.infoOfProductInOrderContainer.frame.size.height + 70, self.reorderButton.frame.size.width, self.reorderButton.frame.size.height);
+            self.reorderButton.frame = CGRectMake(self.reorderButton.frame.origin.x, self.infoOfProductInOrderContainer.frame.origin.y + self.infoOfProductInOrderContainer.frame.size.height + 120, self.reorderButton.frame.size.width, self.reorderButton.frame.size.height);
 
             [UIView commitAnimations];
             
@@ -439,7 +445,7 @@
             self.infoOfOrderContainer.frame = CGRectMake(self.firstContainerX, self.firstContainerY, self.firstContainerWidth, self.firstContainerHeight);
             self.infoOfProductInOrderContainer.frame = CGRectMake(self.secondContainerX, self.tempFirstContainerY, self.secondContainerWidth, self.secondContainerHeight);
             
-            self.reorderButton.frame = CGRectMake(self.reorderButton.frame.origin.x, self.infoOfProductInOrderContainer.frame.origin.y + self.infoOfProductInOrderContainer.frame.size.height + 70, self.reorderButton.frame.size.width, self.reorderButton.frame.size.height);
+            self.reorderButton.frame = CGRectMake(self.reorderButton.frame.origin.x, self.infoOfProductInOrderContainer.frame.origin.y + self.infoOfProductInOrderContainer.frame.size.height + 120, self.reorderButton.frame.size.width, self.reorderButton.frame.size.height);
 
             [UIView commitAnimations];
             
@@ -475,7 +481,7 @@
         [UIView setAnimationDuration:0.3];
         self.infoOfProductInOrderContainer.frame = CGRectMake(self.secondContainerX, self.firstContainerY + self.infoOfOrderContainer.frame.size.height - 1, self.secondContainerWidth, self.infoOfProductInOrderDetailView.frame.size.height + 60);
         
-        self.reorderButton.frame = CGRectMake(self.reorderButton.frame.origin.x, self.infoOfProductInOrderContainer.frame.origin.y + self.infoOfProductInOrderContainer.frame.size.height + 70, self.reorderButton.frame.size.width, self.reorderButton.frame.size.height);
+        self.reorderButton.frame = CGRectMake(self.reorderButton.frame.origin.x, self.infoOfProductInOrderContainer.frame.origin.y + self.infoOfProductInOrderContainer.frame.size.height + 120, self.reorderButton.frame.size.width, self.reorderButton.frame.size.height);
 
         [UIView commitAnimations];
         
@@ -495,7 +501,7 @@
         [UIView setAnimationDuration:0.8];
         self.infoOfProductInOrderContainer.frame = CGRectMake(self.secondContainerX, self.firstContainerY + self.infoOfOrderContainer.frame.size.height - 1, self.secondContainerWidth, self.secondContainerHeight);
         
-        self.reorderButton.frame = CGRectMake(self.reorderButton.frame.origin.x, self.infoOfProductInOrderContainer.frame.origin.y + self.infoOfProductInOrderContainer.frame.size.height + 70, self.reorderButton.frame.size.width, self.reorderButton.frame.size.height);
+        self.reorderButton.frame = CGRectMake(self.reorderButton.frame.origin.x, self.infoOfProductInOrderContainer.frame.origin.y + self.infoOfProductInOrderContainer.frame.size.height + 120, self.reorderButton.frame.size.width, self.reorderButton.frame.size.height);
         
         [self.scrollView setContentSize:CGSizeMake(320 , self.reorderButton.frame.origin.y + self.reorderButton.frame.size.height)];
 
