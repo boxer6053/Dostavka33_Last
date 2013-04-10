@@ -868,7 +868,8 @@
                         break;
                     }
                 }
-                                
+                
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
                 cell.weightLabel.text = [NSString stringWithFormat:@"%@%@%@%@",cell.weightLabel.text, @" ", self.product.weight, @" g"];
                 
                 cell.descriptionLabel.text = self.product.descriptionText;
@@ -894,6 +895,8 @@
                     }
                 }
             }
+            
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
             cell.addButton.tag = indexPath.row;
             [cell.addButton addTarget:self action:@selector(addButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
             cell.ingredientName.text = ingredient.name;
