@@ -717,6 +717,7 @@
     self.scrollView.contentSize = CGSizeMake(320, 430);
     if ([self checkForLiteracy])
     {
+        if([self checkForNumberCount]){
         //save address
         self.dictionary = [[NSMutableDictionary alloc] init];
         [self.dictionary setObject:self.addressName.text forKey:@"name"];
@@ -827,6 +828,16 @@
                                                                cancelButtonTitle:@"Ok"
                                                                otherButtonTitles:nil];
             [connectFailMessage show];
+        }
+    }
+        else{
+            UIAlertView *connectFailMessage = [[UIAlertView alloc] initWithTitle:@"Input correct phone number!"
+                                                                         message:nil //@"Not success"
+                                                                        delegate:self
+                                                               cancelButtonTitle:@"Ok"
+                                                               otherButtonTitles:nil];
+            [connectFailMessage show];
+
         }
     }
     else
@@ -1087,8 +1098,10 @@
     NSString *phoneNumberString = [self.phone text];
     int phoneNumberCount = [phoneNumberString length];
     
-    if ((phoneNumberCount > 6 && phoneNumberCount < 11)) {
+    if ((phoneNumberCount ==10) &([phoneNumberString characterAtIndex:0] == 0) ) {
+        
         return YES;
+        
     } else
         return NO;
 }

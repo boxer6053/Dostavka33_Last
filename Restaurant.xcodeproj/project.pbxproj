@@ -88,7 +88,6 @@
 		F53DF5D3161ED8CF0004C7A3 /* Line1pVerticalGray.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F53DF5D2161ED8CF0004C7A3 /* Line1pVerticalGray.jpg */; };
 		F541FCDC15EF5982003B13AE /* Button2.png in Resources */ = {isa = PBXBuildFile; fileRef = F541FCDB15EF5982003B13AE /* Button2.png */; };
 		F541FCDE15EF6987003B13AE /* button3.png in Resources */ = {isa = PBXBuildFile; fileRef = F541FCDD15EF6987003B13AE /* button3.png */; };
-		F54E25D517044D4D00D27972 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F54E25D417044D4D00D27972 /* MainStoryboard_iPad.storyboard */; };
 		F5513A0915DA3AA90083E075 /* IconDownloader.h in Headers */ = {isa = PBXBuildFile; fileRef = 78EF80AD157381DD00478EEB /* IconDownloader.h */; settings = {ATTRIBUTES = (); }; };
 		F5513A0A15DA3AA90083E075 /* LoadAppViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 781B8F271546DBDD0074EDBD /* LoadAppViewController.h */; settings = {ATTRIBUTES = (); }; };
 		F5513A0B15DA3AA90083E075 /* MainMenuViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 781B8F2A1546DD590074EDBD /* MainMenuViewController.h */; settings = {ATTRIBUTES = (); }; };
@@ -152,6 +151,7 @@
 		F5B4609615C2B78F00A6815C /* Cart1.PNG in Resources */ = {isa = PBXBuildFile; fileRef = F5B4609515C2B78F00A6815C /* Cart1.PNG */; };
 		F5B4609A15C2BF7900A6815C /* shopping-cart.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B4609915C2BF7900A6815C /* shopping-cart.png */; };
 		F5B4609C15C2D4A500A6815C /* metro.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B4609B15C2D4A500A6815C /* metro.png */; };
+		F5B544C11729358100961784 /* cover_3_1.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B544C01729358100961784 /* cover_3_1.png */; };
 		F5B70D9815D178E200695FAA /* subViewSpam.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B70D9615D178E200695FAA /* subViewSpam.m */; };
 		F5B70D9915D178E200695FAA /* subViewSpam.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5B70D9715D178E200695FAA /* subViewSpam.xib */; };
 		F5BCF704162438C1000C5714 /* ReservHistoryTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = F5BCF700162438C1000C5714 /* ReservHistoryTableViewController.h */; settings = {ATTRIBUTES = (); }; };
@@ -381,6 +381,7 @@
 		F5B4609515C2B78F00A6815C /* Cart1.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cart1.PNG; sourceTree = "<group>"; };
 		F5B4609915C2BF7900A6815C /* shopping-cart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shopping-cart.png"; sourceTree = "<group>"; };
 		F5B4609B15C2D4A500A6815C /* metro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = metro.png; sourceTree = "<group>"; };
+		F5B544C01729358100961784 /* cover_3_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cover_3_1.png; sourceTree = "<group>"; };
 		F5B70D9515D178E200695FAA /* subViewSpam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = subViewSpam.h; sourceTree = "<group>"; };
 		F5B70D9615D178E200695FAA /* subViewSpam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = subViewSpam.m; sourceTree = "<group>"; };
 		F5B70D9715D178E200695FAA /* subViewSpam.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = subViewSpam.xib; sourceTree = "<group>"; };
@@ -628,6 +629,7 @@
 				F5142FEC16245B1B00262BD2 /* back_ .png */,
 				F53DF5D2161ED8CF0004C7A3 /* Line1pVerticalGray.jpg */,
 				F5F5705F16175814003CA47C /* arrow1_green.png */,
+				F5B544C01729358100961784 /* cover_3_1.png */,
 				F5F5706016175814003CA47C /* arrow1_red.png */,
 				F5F5706116175814003CA47C /* arrow2_green.png */,
 				F5F5706216175814003CA47C /* arrow2_red.png */,
@@ -1059,6 +1061,7 @@
 				FAEB517B165E6D390029141E /* IngredientCell.xib in Resources */,
 				FAEB5181165E6DBD0029141E /* ProductDescriptionCell.xib in Resources */,
 				F5AA773E171405BB006A6268 /* TempProductDescriptionCell.xib in Resources */,
+				F5B544C11729358100961784 /* cover_3_1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -151,7 +151,7 @@
     }
     else
     {
-        self.imageView.image = [UIImage imageNamed:@"picture.png"];
+        self.imageView.image = [UIImage imageNamed:@"cover_3_1.png"];
     }
     
     NSLog(@"I'm in viewDidLoad");
@@ -287,7 +287,7 @@
 //        [[NSUserDefaults standardUserDefaults] setValue:@"1" forKey:@"CurrencyCoefficient"];
         
         [[NSUserDefaults standardUserDefaults] setValue:@"UAH" forKey:@"Currency"];
-        [[NSUserDefaults standardUserDefaults] setValue:@"1" forKey:@"CurrencyCoefficient"];
+        [[NSUserDefaults standardUserDefaults] setValue:@"8.200000001" forKey:@"CurrencyCoefficient"];
     }
     
     if (!checkConnection.hasConnectivity)
