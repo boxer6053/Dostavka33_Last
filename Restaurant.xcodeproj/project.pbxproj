@@ -152,6 +152,7 @@
 		F5B4609A15C2BF7900A6815C /* shopping-cart.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B4609915C2BF7900A6815C /* shopping-cart.png */; };
 		F5B4609C15C2D4A500A6815C /* metro.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B4609B15C2D4A500A6815C /* metro.png */; };
 		F5B544C11729358100961784 /* cover_3_1.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B544C01729358100961784 /* cover_3_1.png */; };
+		F5B544CB1729446500961784 /* Model.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = F5B544CA1729446500961784 /* Model.xcmappingmodel */; };
 		F5B70D9815D178E200695FAA /* subViewSpam.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B70D9615D178E200695FAA /* subViewSpam.m */; };
 		F5B70D9915D178E200695FAA /* subViewSpam.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5B70D9715D178E200695FAA /* subViewSpam.xib */; };
 		F5BCF704162438C1000C5714 /* ReservHistoryTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = F5BCF700162438C1000C5714 /* ReservHistoryTableViewController.h */; settings = {ATTRIBUTES = (); }; };
@@ -382,6 +383,8 @@
 		F5B4609915C2BF7900A6815C /* shopping-cart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shopping-cart.png"; sourceTree = "<group>"; };
 		F5B4609B15C2D4A500A6815C /* metro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = metro.png; sourceTree = "<group>"; };
 		F5B544C01729358100961784 /* cover_3_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cover_3_1.png; sourceTree = "<group>"; };
+		F5B544C31729369A00961784 /* Restaurants 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Restaurants 2.xcdatamodel"; sourceTree = "<group>"; };
+		F5B544CA1729446500961784 /* Model.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; name = Model.xcmappingmodel; path = ../Model.xcmappingmodel; sourceTree = "<group>"; };
 		F5B70D9515D178E200695FAA /* subViewSpam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = subViewSpam.h; sourceTree = "<group>"; };
 		F5B70D9615D178E200695FAA /* subViewSpam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = subViewSpam.m; sourceTree = "<group>"; };
 		F5B70D9715D178E200695FAA /* subViewSpam.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = subViewSpam.xib; sourceTree = "<group>"; };
@@ -527,6 +530,7 @@
 				781B8F191546DB870074EDBD /* MainStoryboard_iPhone.storyboard */,
 				F54E25D417044D4D00D27972 /* MainStoryboard_iPad.storyboard */,
 				78D3CF1C156A9248003202BD /* Restaurants.xcdatamodeld */,
+				F5B544CA1729446500961784 /* Model.xcmappingmodel */,
 				781B8F161546DB870074EDBD /* RestaurantAppDelegate.h */,
 				781B8F171546DB870074EDBD /* RestaurantAppDelegate.m */,
 				78EF80B41573A51300478EEB /* images */,
@@ -1128,6 +1132,7 @@
 				FACE6A94167B7E63004F55D4 /* CollectionViewController.m in Sources */,
 				FA936664168EFE1D00DB341D /* SizeStruct.m in Sources */,
 				F5AA7746171405E4006A6268 /* TempProductDescriptionCell.m in Sources */,
+				F5B544CB1729446500961784 /* Model.xcmappingmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1320,9 +1325,10 @@
 		78D3CF1C156A9248003202BD /* Restaurants.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				F5B544C31729369A00961784 /* Restaurants 2.xcdatamodel */,
 				78D3CF1D156A9248003202BD /* Restaurants.xcdatamodel */,
 			);
-			currentVersion = 78D3CF1D156A9248003202BD /* Restaurants.xcdatamodel */;
+			currentVersion = F5B544C31729369A00961784 /* Restaurants 2.xcdatamodel */;
 			path = Restaurants.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

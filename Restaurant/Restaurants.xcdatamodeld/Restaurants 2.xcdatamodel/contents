@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="12C60" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Addresses">
+    <entity name="Addresses" elementID="Addresses">
         <attribute name="access" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="additional_info" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="building" optional="YES" attributeType="String" syncable="YES"/>
@@ -19,7 +19,11 @@
         </attribute>
         <userInfo/>
     </entity>
-    <entity name="Cart" syncable="YES">
+    <entity name="Cart_Products_Ingredients" elementID="Cart_Products_Ingredients" syncable="YES">
+        <attribute name="idIngredient" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="idProduct" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="Cart1" elementID="Cart" syncable="YES">
         <attribute name="calories" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="carbs" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="cost" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
@@ -37,33 +41,29 @@
         <attribute name="underbarid" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="weight" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
     </entity>
-    <entity name="Cart_Products_Ingredients" syncable="YES">
-        <attribute name="idIngredient" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-        <attribute name="idProduct" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-    </entity>
-    <entity name="CheckChangesSettings" syncable="YES">
+    <entity name="CheckChangesSettings" elementID="CheckChangesSettings" syncable="YES">
         <attribute name="idCity" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="idLanguage" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="Cities" syncable="YES">
+    <entity name="Cities" elementID="Cities" syncable="YES">
         <attribute name="action" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="underbarid" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="version" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
     </entity>
-    <entity name="Cities_translation" syncable="YES">
+    <entity name="Cities_translation" elementID="Cities_translation" syncable="YES">
         <attribute name="idCity" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="idLanguage" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="underbarid" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
     </entity>
-    <entity name="Currencies" syncable="YES">
+    <entity name="Currencies" elementID="Currencies" syncable="YES">
         <attribute name="action" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="coef" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="currency" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="underbarid" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="version" optional="YES" attributeType="Integer 16" defaultValueString="0.0" syncable="YES"/>
     </entity>
-    <entity name="CustomerOrders" syncable="YES">
+    <entity name="CustomerOrders" elementID="CustomerOrders" syncable="YES">
         <attribute name="additional_info" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
@@ -79,24 +79,24 @@
         <attribute name="street" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="underbarid" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
     </entity>
-    <entity name="Deliveries" syncable="YES">
+    <entity name="Deliveries" elementID="Deliveries" syncable="YES">
         <attribute name="action" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="underbarid" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="version" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
     </entity>
-    <entity name="Deliveries_translation" syncable="YES">
+    <entity name="Deliveries_translation" elementID="Deliveries_translation" syncable="YES">
         <attribute name="descriptionAbout" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="idDelivery" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="idLanguage" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="underbarid" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
     </entity>
-    <entity name="Discounts" syncable="YES">
+    <entity name="Discounts" elementID="Discounts" syncable="YES">
         <attribute name="underbarid" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="Ingredients" syncable="YES">
+    <entity name="Ingredients" elementID="Ingredients" syncable="YES">
         <attribute name="action" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="idPicture" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="idThumbnail" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
@@ -106,7 +106,7 @@
         <attribute name="weight" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <relationship name="translation" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Ingredients_translation" inverseName="parent" inverseEntity="Ingredients_translation" syncable="YES"/>
     </entity>
-    <entity name="Ingredients_translation" syncable="YES">
+    <entity name="Ingredients_translation" elementID="Ingredients_translation" syncable="YES">
         <attribute name="descriptionText" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="idIngredient" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="idLanguage" optional="YES" attributeType="String" syncable="YES"/>
@@ -114,13 +114,13 @@
         <attribute name="underbarid" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <relationship name="parent" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Ingredients" inverseName="translation" inverseEntity="Ingredients" syncable="YES"/>
     </entity>
-    <entity name="Languages" syncable="YES">
+    <entity name="Languages" elementID="Languages" syncable="YES">
         <attribute name="action" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="language" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="underbarid" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="version" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
     </entity>
-    <entity name="Menus" syncable="YES">
+    <entity name="Menus" elementID="Menus" syncable="YES">
         <attribute name="action" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="idParentMenu" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="idPicture" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
@@ -129,30 +129,30 @@
         <attribute name="underbarid" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="version" optional="YES" attributeType="Integer 16" defaultValueString="0.0" syncable="YES"/>
     </entity>
-    <entity name="Menus_translation" syncable="YES">
+    <entity name="Menus_translation" elementID="Menus_translation" syncable="YES">
         <attribute name="idLanguage" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="idMenu" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="menuText" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="underbarid" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
     </entity>
-    <entity name="MinimumOrderCost" syncable="YES">
+    <entity name="MinimumOrderCost" elementID="MinimumOrderCost" syncable="YES">
         <attribute name="idCity" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="idDelivery" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="underbarid" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="Multisize" syncable="YES">
+    <entity name="Multisize" elementID="Multisize" syncable="YES">
         <attribute name="idProduct" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="idSize" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="underbarid" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
     </entity>
-    <entity name="Pictures" representedClassName="Pictures" syncable="YES">
+    <entity name="Pictures" representedClassName="Pictures" elementID="Pictures" syncable="YES">
         <attribute name="data" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="filePath" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="link" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="underbarid" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
     </entity>
-    <entity name="Products" syncable="YES">
+    <entity name="Products" elementID="Products" syncable="YES">
         <attribute name="action" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="calories" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="carbs" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
@@ -172,7 +172,7 @@
         <attribute name="weight" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <relationship name="translation" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Products_translation" inverseName="parent" inverseEntity="Products_translation" syncable="YES"/>
     </entity>
-    <entity name="Products_translation" syncable="YES">
+    <entity name="Products_translation" elementID="Products_translation" syncable="YES">
         <attribute name="descriptionText" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="idLanguage" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="idProduct" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
@@ -180,27 +180,27 @@
         <attribute name="underbarid" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <relationship name="parent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Products" inverseName="translation" inverseEntity="Products" syncable="YES"/>
     </entity>
-    <entity name="Promotions" syncable="YES">
+    <entity name="Promotions" elementID="Promotions" syncable="YES">
         <attribute name="action" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="idPicture" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="idThumbnail" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="underbarid" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="version" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
     </entity>
-    <entity name="Promotions_translation" syncable="YES">
+    <entity name="Promotions_translation" elementID="Promotions_translation" syncable="YES">
         <attribute name="descriptionAbout" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="idLanguage" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="idPromotion" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="underbarid" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
     </entity>
-    <entity name="Reservation" syncable="YES">
+    <entity name="Reservation" elementID="Reservation" syncable="YES">
         <attribute name="dateOfReservation" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="numberOfPeople" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="ReservationHistory" syncable="YES">
+    <entity name="ReservationHistory" elementID="ReservationHistory" syncable="YES">
         <attribute name="currentDate" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="numberOfPeople" optional="YES" attributeType="String" syncable="YES"/>
@@ -210,7 +210,7 @@
         <attribute name="statusID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="time" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="Restaurants" syncable="YES">
+    <entity name="Restaurants" elementID="Restaurants" syncable="YES">
         <attribute name="action" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="coordinates" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="gallery" optional="YES" attributeType="String" syncable="YES"/>
@@ -230,7 +230,7 @@
         <attribute name="website" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="workingTime" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="Restaurants_translation" syncable="YES">
+    <entity name="Restaurants_translation" elementID="Restaurants_translation" syncable="YES">
         <attribute name="additionalAddressInfo" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="additionalContactInfo" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="house" optional="YES" attributeType="String" syncable="YES"/>
@@ -242,7 +242,7 @@
         <attribute name="underbarid" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="workingTime" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="Sizes" syncable="YES">
+    <entity name="Sizes" elementID="Sizes" syncable="YES">
         <attribute name="action" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="price" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="underbarid" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
@@ -250,7 +250,7 @@
         <attribute name="version" optional="YES" attributeType="Integer 16" defaultValueString="0.0" syncable="YES"/>
         <relationship name="translation" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Sizes_translation" inverseName="parent" inverseEntity="Sizes_translation" syncable="YES"/>
     </entity>
-    <entity name="Sizes_translation" syncable="YES">
+    <entity name="Sizes_translation" elementID="Sizes_translation" syncable="YES">
         <attribute name="descriptionText" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="idLanguage" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="idSize" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
@@ -258,33 +258,33 @@
         <attribute name="underbarid" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <relationship name="parent" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Sizes" inverseName="translation" inverseEntity="Sizes" syncable="YES"/>
     </entity>
-    <entity name="Statuses" syncable="YES">
+    <entity name="Statuses" elementID="Statuses" syncable="YES">
         <attribute name="action" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="underbarid" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="version" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
     </entity>
-    <entity name="Statuses_translation" syncable="YES">
+    <entity name="Statuses_translation" elementID="Statuses_translation" syncable="YES">
         <attribute name="idLanguage" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="idStatus" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="underbarid" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
     </entity>
-    <entity name="Titles" syncable="YES">
+    <entity name="Titles" elementID="Titles" syncable="YES">
         <attribute name="action" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="code" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name_EN" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="underbarid" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="version" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
     </entity>
-    <entity name="Titles_translation" syncable="YES">
+    <entity name="Titles_translation" elementID="Titles_translation" syncable="YES">
         <attribute name="code" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="idLanguage" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name_EN" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="underbarid" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
     </entity>
-    <entity name="Toppings" syncable="YES">
+    <entity name="Toppings" elementID="Toppings" syncable="YES">
         <attribute name="idIngredient" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="idProduct" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="isDefault" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
@@ -292,7 +292,7 @@
     </entity>
     <elements>
         <element name="Addresses" positionX="0" positionY="0" width="128" height="255"/>
-        <element name="Cart" positionX="0" positionY="0" width="128" height="285"/>
+        <element name="Cart1" positionX="0" positionY="0" width="128" height="285"/>
         <element name="Cart_Products_Ingredients" positionX="160" positionY="192" width="128" height="75"/>
         <element name="CheckChangesSettings" positionX="160" positionY="192" width="128" height="75"/>
         <element name="Cities" positionX="0" positionY="0" width="128" height="90"/>
@@ -324,6 +324,6 @@
         <element name="Statuses_translation" positionX="0" positionY="0" width="128" height="105"/>
         <element name="Titles" positionX="0" positionY="0" width="128" height="120"/>
         <element name="Titles_translation" positionX="0" positionY="0" width="128" height="120"/>
-        <element name="Toppings" positionX="160" positionY="192" width="128" height="103"/>
+        <element name="Toppings" positionX="160" positionY="192" width="128" height="105"/>
     </elements>
 </model>
