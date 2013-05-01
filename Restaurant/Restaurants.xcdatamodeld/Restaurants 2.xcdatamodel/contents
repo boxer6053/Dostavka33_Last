@@ -19,11 +19,7 @@
         </attribute>
         <userInfo/>
     </entity>
-    <entity name="Cart_Products_Ingredients" elementID="Cart_Products_Ingredients" syncable="YES">
-        <attribute name="idIngredient" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-        <attribute name="idProduct" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-    </entity>
-    <entity name="Cart1" elementID="Cart" syncable="YES">
+    <entity name="Cart" elementID="Cart" syncable="YES">
         <attribute name="calories" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="carbs" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="cost" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
@@ -40,6 +36,10 @@
         <attribute name="sizeId" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="underbarid" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="weight" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+    </entity>
+    <entity name="Cart_Products_Ingredients" elementID="Cart_Products_Ingredients" syncable="YES">
+        <attribute name="idIngredient" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="idProduct" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
     </entity>
     <entity name="CheckChangesSettings" elementID="CheckChangesSettings" syncable="YES">
         <attribute name="idCity" optional="YES" attributeType="String" syncable="YES"/>
@@ -292,8 +292,8 @@
     </entity>
     <elements>
         <element name="Addresses" positionX="0" positionY="0" width="128" height="255"/>
-        <element name="Cart1" positionX="0" positionY="0" width="128" height="285"/>
         <element name="Cart_Products_Ingredients" positionX="160" positionY="192" width="128" height="75"/>
+        <element name="Cart" positionX="0" positionY="0" width="128" height="285"/>
         <element name="CheckChangesSettings" positionX="160" positionY="192" width="128" height="75"/>
         <element name="Cities" positionX="0" positionY="0" width="128" height="90"/>
         <element name="Cities_translation" positionX="0" positionY="0" width="128" height="105"/>

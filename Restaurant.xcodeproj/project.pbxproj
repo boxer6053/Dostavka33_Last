@@ -72,7 +72,6 @@
 		F52A6A201594BF8D00C96F2C /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = F52A6A1F1594BF8D00C96F2C /* back.png */; };
 		F52E7C3516FC83A5000D869F /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F52E7C3416FC83A5000D869F /* FacebookSDK.framework */; };
 		F530828E163084D6007A4A7B /* libGMGridView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F530827D1630849D007A4A7B /* libGMGridView.a */; };
-		F530828F163084D6007A4A7B /* libSSToolkit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5308289163084A9007A4A7B /* libSSToolkit.a */; };
 		F53AF1701598876100EAA5AA /* MenuIconViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F53AF16F1598876100EAA5AA /* MenuIconViewController.m */; };
 		F53BA7A3161C83DA00AF79DF /* arrow3_cancel_red.png in Resources */ = {isa = PBXBuildFile; fileRef = F53BA7A0161C83DA00AF79DF /* arrow3_cancel_red.png */; };
 		F53BA7A4161C83DA00AF79DF /* arrow3_green.png in Resources */ = {isa = PBXBuildFile; fileRef = F53BA7A1161C83DA00AF79DF /* arrow3_green.png */; };
@@ -152,7 +151,6 @@
 		F5B4609A15C2BF7900A6815C /* shopping-cart.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B4609915C2BF7900A6815C /* shopping-cart.png */; };
 		F5B4609C15C2D4A500A6815C /* metro.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B4609B15C2D4A500A6815C /* metro.png */; };
 		F5B544C11729358100961784 /* cover_3_1.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B544C01729358100961784 /* cover_3_1.png */; };
-		F5B544CB1729446500961784 /* Model.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = F5B544CA1729446500961784 /* Model.xcmappingmodel */; };
 		F5B70D9815D178E200695FAA /* subViewSpam.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B70D9615D178E200695FAA /* subViewSpam.m */; };
 		F5B70D9915D178E200695FAA /* subViewSpam.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5B70D9715D178E200695FAA /* subViewSpam.xib */; };
 		F5BCF704162438C1000C5714 /* ReservHistoryTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = F5BCF700162438C1000C5714 /* ReservHistoryTableViewController.h */; settings = {ATTRIBUTES = (); }; };
@@ -165,6 +163,8 @@
 		F5EA2583164808780024202D /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAB44C2E1646817400EA43B5 /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		F5EA2584164808810024202D /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAB44C2C1646816E00EA43B5 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		F5EBBBF115A70F6000C07969 /* SocialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5EBBBF015A70F6000C07969 /* SocialViewController.m */; };
+		F5EE52AB173103AE005506B8 /* libSSToolkit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5EE52A6173103A9005506B8 /* libSSToolkit.a */; };
+		F5EE52AD17310800005506B8 /* Model1.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = F5EE52AC17310800005506B8 /* Model1.xcmappingmodel */; };
 		F5F0215A1588C017009EB482 /* DeliveryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F021591588C017009EB482 /* DeliveryViewController.m */; };
 		F5F1058E15DD2E1200B03533 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F5F1058D15DD2E1200B03533 /* libsqlite3.0.dylib */; };
 		F5F254EF15EE1C0E00BC48AB /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F5F254EE15EE1C0E00BC48AB /* 2.jpg */; };
@@ -215,23 +215,23 @@
 			remoteGlobalIDString = 78509312149FAC2E000787E4;
 			remoteInfo = GMGridView;
 		};
-		F5308288163084A9007A4A7B /* PBXContainerItemProxy */ = {
+		F5EE52A5173103A9005506B8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = F530827E163084A9007A4A7B /* SSToolkit.xcodeproj */;
+			containerPortal = F5EE529F173103A9005506B8 /* SSToolkit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = D2AAC07E0554694100DB518D;
 			remoteInfo = SSToolkit;
 		};
-		F530828A163084A9007A4A7B /* PBXContainerItemProxy */ = {
+		F5EE52A7173103A9005506B8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = F530827E163084A9007A4A7B /* SSToolkit.xcodeproj */;
+			containerPortal = F5EE529F173103A9005506B8 /* SSToolkit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = B239101D1357DC3E00ADE21B;
 			remoteInfo = SSToolkitTests;
 		};
-		F530828C163084A9007A4A7B /* PBXContainerItemProxy */ = {
+		F5EE52A9173103A9005506B8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = F530827E163084A9007A4A7B /* SSToolkit.xcodeproj */;
+			containerPortal = F5EE529F173103A9005506B8 /* SSToolkit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = B2C507EA151BA64400E94614;
 			remoteInfo = SSToolkitResources;
@@ -330,7 +330,6 @@
 		F52A6A1F1594BF8D00C96F2C /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		F52E7C3416FC83A5000D869F /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		F53082751630849D007A4A7B /* GMGridView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GMGridView.xcodeproj; path = ../../GMGridView/GMGridView.xcodeproj; sourceTree = "<group>"; };
-		F530827E163084A9007A4A7B /* SSToolkit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SSToolkit.xcodeproj; path = ../../Vendor/SSToolkit/SSToolkit.xcodeproj; sourceTree = "<group>"; };
 		F53AF16E1598876100EAA5AA /* MenuIconViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuIconViewController.h; sourceTree = "<group>"; };
 		F53AF16F1598876100EAA5AA /* MenuIconViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuIconViewController.m; sourceTree = "<group>"; };
 		F53BA7A0161C83DA00AF79DF /* arrow3_cancel_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow3_cancel_red.png; sourceTree = "<group>"; };
@@ -383,8 +382,7 @@
 		F5B4609915C2BF7900A6815C /* shopping-cart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shopping-cart.png"; sourceTree = "<group>"; };
 		F5B4609B15C2D4A500A6815C /* metro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = metro.png; sourceTree = "<group>"; };
 		F5B544C01729358100961784 /* cover_3_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cover_3_1.png; sourceTree = "<group>"; };
-		F5B544C31729369A00961784 /* Restaurants 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Restaurants 2.xcdatamodel"; sourceTree = "<group>"; };
-		F5B544CA1729446500961784 /* Model.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; name = Model.xcmappingmodel; path = ../Model.xcmappingmodel; sourceTree = "<group>"; };
+		F5B544C31729369A00961784 /* Restaurants 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Restaurants 2.xcdatamodel"; sourceTree = "<group>"; };
 		F5B70D9515D178E200695FAA /* subViewSpam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = subViewSpam.h; sourceTree = "<group>"; };
 		F5B70D9615D178E200695FAA /* subViewSpam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = subViewSpam.m; sourceTree = "<group>"; };
 		F5B70D9715D178E200695FAA /* subViewSpam.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = subViewSpam.xib; sourceTree = "<group>"; };
@@ -396,6 +394,8 @@
 		F5E0D80615D953FF004BA70B /* icons57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icons57.png; path = ../icons57.png; sourceTree = "<group>"; };
 		F5EBBBEF15A70F6000C07969 /* SocialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialViewController.h; sourceTree = "<group>"; };
 		F5EBBBF015A70F6000C07969 /* SocialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialViewController.m; sourceTree = "<group>"; };
+		F5EE529F173103A9005506B8 /* SSToolkit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SSToolkit.xcodeproj; path = "../../Архив 2/Vendor/SSToolkit/SSToolkit.xcodeproj"; sourceTree = "<group>"; };
+		F5EE52AC17310800005506B8 /* Model1.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = Model1.xcmappingmodel; sourceTree = "<group>"; };
 		F5F021581588C017009EB482 /* DeliveryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeliveryViewController.h; sourceTree = "<group>"; };
 		F5F021591588C017009EB482 /* DeliveryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeliveryViewController.m; sourceTree = "<group>"; };
 		F5F1058D15DD2E1200B03533 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
@@ -448,11 +448,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5EE52AB173103AE005506B8 /* libSSToolkit.a in Frameworks */,
 				F5EA2584164808810024202D /* Social.framework in Frameworks */,
 				F5EA2583164808780024202D /* AdSupport.framework in Frameworks */,
 				F5EA25821648085B0024202D /* Accounts.framework in Frameworks */,
 				F530828E163084D6007A4A7B /* libGMGridView.a in Frameworks */,
-				F530828F163084D6007A4A7B /* libSSToolkit.a in Frameworks */,
 				F5F1058E15DD2E1200B03533 /* libsqlite3.0.dylib in Frameworks */,
 				F5ACDBCA15DBEE510074E028 /* Twitter.framework in Frameworks */,
 				F591ECD815CD723C006BD0E6 /* CoreLocation.framework in Frameworks */,
@@ -492,12 +492,12 @@
 		781B8F061546DB870074EDBD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F5EE529F173103A9005506B8 /* SSToolkit.xcodeproj */,
 				F52E7C3416FC83A5000D869F /* FacebookSDK.framework */,
 				FAB44C301646817D00EA43B5 /* Accounts.framework */,
 				FAB44C2E1646817400EA43B5 /* AdSupport.framework */,
 				FAB44C2C1646816E00EA43B5 /* Social.framework */,
 				FA4B45861642A9FA00EB157A /* FacebookSDKResources.bundle */,
-				F530827E163084A9007A4A7B /* SSToolkit.xcodeproj */,
 				F53082751630849D007A4A7B /* GMGridView.xcodeproj */,
 				F5F1058D15DD2E1200B03533 /* libsqlite3.0.dylib */,
 				F5ACDBC915DBEE510074E028 /* Twitter.framework */,
@@ -530,7 +530,7 @@
 				781B8F191546DB870074EDBD /* MainStoryboard_iPhone.storyboard */,
 				F54E25D417044D4D00D27972 /* MainStoryboard_iPad.storyboard */,
 				78D3CF1C156A9248003202BD /* Restaurants.xcdatamodeld */,
-				F5B544CA1729446500961784 /* Model.xcmappingmodel */,
+				F5EE52AC17310800005506B8 /* Model1.xcmappingmodel */,
 				781B8F161546DB870074EDBD /* RestaurantAppDelegate.h */,
 				781B8F171546DB870074EDBD /* RestaurantAppDelegate.m */,
 				78EF80B41573A51300478EEB /* images */,
@@ -726,16 +726,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F530827F163084A9007A4A7B /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				F5308289163084A9007A4A7B /* libSSToolkit.a */,
-				F530828B163084A9007A4A7B /* SSToolkitTests.app */,
-				F530828D163084A9007A4A7B /* SSToolkitResources.bundle */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		F53AF1721598877700EAA5AA /* Type of View */ = {
 			isa = PBXGroup;
 			children = (
@@ -801,6 +791,16 @@
 				F507E86115BED33D00B1A772 /* TotalCartCell.xib */,
 			);
 			name = Cells;
+			sourceTree = "<group>";
+		};
+		F5EE52A0173103A9005506B8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F5EE52A6173103A9005506B8 /* libSSToolkit.a */,
+				F5EE52A8173103A9005506B8 /* SSToolkitTests.app */,
+				F5EE52AA173103A9005506B8 /* SSToolkitResources.bundle */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		FA243CB2164449E700E23E41 /* Facebook */ = {
@@ -951,8 +951,8 @@
 					ProjectRef = F53082751630849D007A4A7B /* GMGridView.xcodeproj */;
 				},
 				{
-					ProductGroup = F530827F163084A9007A4A7B /* Products */;
-					ProjectRef = F530827E163084A9007A4A7B /* SSToolkit.xcodeproj */;
+					ProductGroup = F5EE52A0173103A9005506B8 /* Products */;
+					ProjectRef = F5EE529F173103A9005506B8 /* SSToolkit.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -970,25 +970,25 @@
 			remoteRef = F530827C1630849D007A4A7B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		F5308289163084A9007A4A7B /* libSSToolkit.a */ = {
+		F5EE52A6173103A9005506B8 /* libSSToolkit.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libSSToolkit.a;
-			remoteRef = F5308288163084A9007A4A7B /* PBXContainerItemProxy */;
+			remoteRef = F5EE52A5173103A9005506B8 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		F530828B163084A9007A4A7B /* SSToolkitTests.app */ = {
+		F5EE52A8173103A9005506B8 /* SSToolkitTests.app */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.application;
 			path = SSToolkitTests.app;
-			remoteRef = F530828A163084A9007A4A7B /* PBXContainerItemProxy */;
+			remoteRef = F5EE52A7173103A9005506B8 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		F530828D163084A9007A4A7B /* SSToolkitResources.bundle */ = {
+		F5EE52AA173103A9005506B8 /* SSToolkitResources.bundle */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = SSToolkitResources.bundle;
-			remoteRef = F530828C163084A9007A4A7B /* PBXContainerItemProxy */;
+			remoteRef = F5EE52A9173103A9005506B8 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -1132,7 +1132,7 @@
 				FACE6A94167B7E63004F55D4 /* CollectionViewController.m in Sources */,
 				FA936664168EFE1D00DB341D /* SizeStruct.m in Sources */,
 				F5AA7746171405E4006A6268 /* TempProductDescriptionCell.m in Sources */,
-				F5B544CB1729446500961784 /* Model.xcmappingmodel in Sources */,
+				F5EE52AD17310800005506B8 /* Model1.xcmappingmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
